@@ -181,9 +181,14 @@ const JobsPage = () => {
           Trabajos Realizados
         </Typography>
         
-        <Grid container spacing={6} justifyContent="center">
+        <Box sx={{ 
+          display: 'grid',
+          gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', md: 'repeat(3, 1fr)' },
+          gap: 6,
+          width: '100%'
+        }}>
           {jobs.map((job, index) => (
-            <Grid item key={index} sx={{ xs: 12, sm: 6, md: 4 }}>
+            <Box key={index}>
               <JobCard>
                 {index === 0 ? (
                   <VerticalBeforeAfterContainer>
@@ -321,9 +326,9 @@ const JobsPage = () => {
                   </Typography>
                 </CardContent>
               </JobCard>
-            </Grid>
+            </Box>
           ))}
-        </Grid>
+        </Box>
       </Container>
     </Box>
   );

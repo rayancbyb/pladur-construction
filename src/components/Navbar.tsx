@@ -1,5 +1,5 @@
 import { AppBar, Toolbar, Typography, Button, Box, Container } from '@mui/material';
-import { Link, useLocation } from 'react-router-dom';
+import { Link as RouterLink, useLocation } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 import React from 'react';
 
@@ -136,48 +136,48 @@ const Navbar = () => {
           py: 1.5,
           px: { xs: 2, md: 4 }
         }}>
-          <LogoText 
-            variant="h5" 
-            component={Link} 
-            to="/"
-            className="logo-text"
-          >
-            Aislamentos Chairi
-          </LogoText>
+          <RouterLink to="/" style={{ textDecoration: 'none' }}>
+            <LogoText 
+              variant="h5" 
+              className="logo-text"
+            >
+              Aislamentos Chairi
+            </LogoText>
+          </RouterLink>
           
           <Box sx={{ 
             display: 'flex', 
             alignItems: 'center',
             gap: 1
           }}>
-            <StyledButton 
-              component={Link} 
-              to="/"
-              className={location.pathname === '/' ? 'active' : ''}
-            >
-              Inicio
-            </StyledButton>
-            <StyledButton 
-              component={Link} 
-              to="/about"
-              className={location.pathname === '/about' ? 'active' : ''}
-            >
-              Sobre Nosotros
-            </StyledButton>
-            <StyledButton 
-              component={Link} 
-              to="/jobs"
-              className={location.pathname === '/jobs' ? 'active' : ''}
-            >
-              Trabajos
-            </StyledButton>
-            <StyledButton 
-              component={Link} 
-              to="/services"
-              className={location.pathname === '/services' ? 'active' : ''}
-            >
-              Servicios
-            </StyledButton>
+            <RouterLink to="/" style={{ textDecoration: 'none' }}>
+              <StyledButton 
+                className={location.pathname === '/' ? 'active' : ''}
+              >
+                Inicio
+              </StyledButton>
+            </RouterLink>
+            <RouterLink to="/about" style={{ textDecoration: 'none' }}>
+              <StyledButton 
+                className={location.pathname === '/about' ? 'active' : ''}
+              >
+                Sobre Nosotros
+              </StyledButton>
+            </RouterLink>
+            <RouterLink to="/jobs" style={{ textDecoration: 'none' }}>
+              <StyledButton 
+                className={location.pathname === '/jobs' ? 'active' : ''}
+              >
+                Trabajos
+              </StyledButton>
+            </RouterLink>
+            <RouterLink to="/services" style={{ textDecoration: 'none' }}>
+              <StyledButton 
+                className={location.pathname === '/services' ? 'active' : ''}
+              >
+                Servicios
+              </StyledButton>
+            </RouterLink>
           </Box>
         </Toolbar>
       </Container>
