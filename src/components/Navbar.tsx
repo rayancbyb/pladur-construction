@@ -106,7 +106,6 @@ const LogoText = styled(Typography)({
 
 const Navbar = () => {
   const location = useLocation();
-  const isHome = location.pathname === '/';
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -122,7 +121,7 @@ const Navbar = () => {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [isHome]);
+  }, []);
 
   return (
     <StyledAppBar 

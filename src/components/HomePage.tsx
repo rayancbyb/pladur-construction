@@ -4,7 +4,7 @@ import InfoIcon from '@mui/icons-material/Info';
 import BuildIcon from '@mui/icons-material/Build';
 import WorkIcon from '@mui/icons-material/Work';
 
-const HeroSection = styled(Box)(({ theme }) => ({
+const HeroSection = styled(Box)({
   backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/images/herramientas.png")',
   backgroundSize: 'cover',
   backgroundPosition: 'center',
@@ -26,28 +26,28 @@ const HeroSection = styled(Box)(({ theme }) => ({
     backgroundColor: 'rgba(249, 215, 120, 0.2)', // Color dorado semitransparente
     zIndex: 1,
   },
-}));
+});
 
 const ContentWrapper = styled(Box)({
   position: 'relative',
   zIndex: 2,
 });
 
-const ContentCard = styled(Paper)(({ theme }) => ({
-  p: 4,
+const ContentCard = styled(Paper)({
+  padding: '32px',
   height: '100%',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
   textAlign: 'center',
   transition: 'all 0.3s ease-in-out',
-  backgroundColor: theme.palette.background.paper,
+  backgroundColor: '#ffffff',
   '&:hover': {
     transform: 'translateY(-10px)',
-    boxShadow: theme.shadows[8],
-    backgroundColor: theme.palette.background.default,
+    boxShadow: '0 5px 15px rgba(0,0,0,0.3)',
+    backgroundColor: '#f5f5f5',
   },
-}));
+});
 
 const IconWrapper = styled(Box)(({ theme }) => ({
   width: 80,

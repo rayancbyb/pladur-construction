@@ -1,7 +1,6 @@
 import React from 'react';
-import { Box, Typography, Container, Grid, Card, CardContent, Slider } from '@mui/material';
+import { Box, Typography, Container, Card, CardContent, Slider } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import { useTheme } from '@mui/material/styles';
 
 const jobs = [
   {
@@ -24,29 +23,29 @@ const jobs = [
   },
 ];
 
-const BeforeAfterContainer = styled(Box)(({ theme }) => ({
+const BeforeAfterContainer = styled(Box)({
   position: 'relative',
   width: '100%',
   height: 0,
-  paddingTop: '100%', // Será reemplazado por el padding dinámico
+  paddingTop: '100%', // Will be replaced by dynamic padding
   overflow: 'hidden',
-  borderRadius: theme.shape.borderRadius,
-  marginBottom: theme.spacing(2),
+  borderRadius: '8px',
+  marginBottom: '16px',
   boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
   backgroundColor: '#f5f5f5',
-}));
+});
 
-const VerticalBeforeAfterContainer = styled(Box)(({ theme }) => ({
+const VerticalBeforeAfterContainer = styled(Box)({
   position: 'relative',
   width: '100%',
   height: 0,
   paddingTop: '150%',
   overflow: 'hidden',
-  borderRadius: theme.shape.borderRadius,
-  marginBottom: theme.spacing(2),
+  borderRadius: '8px',
+  marginBottom: '16px',
   boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
   backgroundColor: '#f5f5f5',
-}));
+});
 
 const BeforeImage = styled(Box)({
   position: 'absolute',
@@ -72,38 +71,38 @@ const AfterImage = styled(Box)({
   zIndex: 2,
 });
 
-const BeforeLabel = styled(Typography)(({ theme }) => ({
+const BeforeLabel = styled(Typography)({
   position: 'absolute',
-  top: theme.spacing(2),
-  left: theme.spacing(2),
+  top: '16px',
+  left: '16px',
   backgroundColor: 'rgba(0, 0, 0, 0.5)',
   color: 'white',
-  padding: theme.spacing(0.5, 1),
-  borderRadius: theme.shape.borderRadius,
+  padding: '4px 8px',
+  borderRadius: '8px',
   zIndex: 3,
-}));
+});
 
-const AfterLabel = styled(Typography)(({ theme }) => ({
+const AfterLabel = styled(Typography)({
   position: 'absolute',
-  top: theme.spacing(2),
-  right: theme.spacing(2),
+  top: '16px',
+  right: '16px',
   backgroundColor: 'rgba(0, 0, 0, 0.5)',
   color: 'white',
-  padding: theme.spacing(0.5, 1),
-  borderRadius: theme.shape.borderRadius,
+  padding: '4px 8px',
+  borderRadius: '8px',
   zIndex: 3,
-}));
+});
 
-const SliderOverlay = styled(Box)(({ theme }) => ({
+const SliderOverlay = styled(Box)({
   position: 'absolute',
   top: 0,
   height: '100%',
   backgroundColor: 'rgba(0, 0, 0, 0.1)',
   zIndex: 3,
   pointerEvents: 'none',
-}));
+});
 
-const SliderContainer = styled(Box)(({ theme }) => ({
+const SliderContainer = styled(Box)({
   position: 'absolute',
   top: 0,
   bottom: 0,
@@ -112,9 +111,9 @@ const SliderContainer = styled(Box)(({ theme }) => ({
   zIndex: 3,
   pointerEvents: 'none',
   boxShadow: '0 0 10px rgba(0,0,0,0.3)',
-}));
+});
 
-const JobCard = styled(Card)(({ theme }) => ({
+const JobCard = styled(Card)({
   height: '100%',
   display: 'flex',
   flexDirection: 'column',
@@ -122,30 +121,16 @@ const JobCard = styled(Card)(({ theme }) => ({
   '&:hover': {
     transform: 'translateY(-5px)',
   },
-}));
+});
 
 const JobsPage = () => {
-  const theme = useTheme();
   const [sliderValues, setSliderValues] = React.useState<{ [key: number]: number }>({});
-  const [imageRatios, setImageRatios] = React.useState<{ [key: number]: number }>({});
 
-  const handleSliderChange = (index: number) => (event: Event, newValue: number | number[]) => {
+  const handleSliderChange = (index: number) => (_: Event, newValue: number | number[]) => {
     setSliderValues(prev => ({
       ...prev,
       [index]: newValue as number,
     }));
-  };
-
-  const handleImageLoad = (index: number, isBeforeImage: boolean) => (event: React.SyntheticEvent<HTMLImageElement>) => {
-    const img = event.target as HTMLImageElement;
-    const ratio = (img.naturalHeight / img.naturalWidth) * 100;
-    
-    if (isBeforeImage) {
-      setImageRatios(prev => ({
-        ...prev,
-        [index]: ratio,
-      }));
-    }
   };
 
   return (
@@ -194,12 +179,6 @@ const JobsPage = () => {
                   <VerticalBeforeAfterContainer>
                     <BeforeLabel>Antes</BeforeLabel>
                     <AfterLabel>Después</AfterLabel>
-                    <img
-                      src={job.beforeImage}
-                      alt=""
-                      style={{ display: 'none' }}
-                      onLoad={handleImageLoad(index, true)}
-                    />
                     <BeforeImage 
                       sx={{ 
                         backgroundImage: `url(${job.beforeImage})`,
@@ -257,12 +236,6 @@ const JobsPage = () => {
                   <BeforeAfterContainer>
                     <BeforeLabel>Antes</BeforeLabel>
                     <AfterLabel>Después</AfterLabel>
-                    <img
-                      src={job.beforeImage}
-                      alt=""
-                      style={{ display: 'none' }}
-                      onLoad={handleImageLoad(index, true)}
-                    />
                     <BeforeImage 
                       sx={{ 
                         backgroundImage: `url(${job.beforeImage})`,
