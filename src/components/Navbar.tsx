@@ -3,7 +3,7 @@ import { Link as RouterLink, useLocation } from 'react-router-dom';
 import { styled } from '@mui/material/styles';
 import React from 'react';
 
-const StyledAppBar = styled(AppBar)(({ theme }) => ({
+const StyledAppBar = styled(AppBar)({
   backgroundColor: 'rgba(0, 0, 0, 0.2)',
   backdropFilter: 'blur(8px)',
   boxShadow: 'none',
@@ -46,7 +46,7 @@ const StyledAppBar = styled(AppBar)(({ theme }) => ({
       }
     }
   }
-}));
+});
 
 const StyledButton = styled(Button)({
   margin: '0 8px',
