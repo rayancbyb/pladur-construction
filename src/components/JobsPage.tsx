@@ -72,48 +72,47 @@ const AfterImage = styled(Box)({
   zIndex: 2,
 });
 
-const SliderContainer = styled(Box)({
+const BeforeLabel = styled(Typography)(({ theme }) => ({
   position: 'absolute',
-  top: 0,
-  left: '50%',
-  width: '4px',
-  height: '100%',
-  backgroundColor: 'white',
-  cursor: 'ew-resize',
+  top: theme.spacing(2),
+  left: theme.spacing(2),
+  backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  color: 'white',
+  padding: theme.spacing(0.5, 1),
+  borderRadius: theme.shape.borderRadius,
   zIndex: 3,
-  boxShadow: '0 0 10px rgba(0,0,0,0.3)',
-  '&::before': {
-    content: '""',
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: '40px',
-    height: '40px',
-    backgroundColor: 'white',
-    borderRadius: '50%',
-    boxShadow: '0 0 15px rgba(0,0,0,0.4)',
-  },
-  '&::after': {
-    content: '"↔"',
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    fontSize: '20px',
-    color: 'rgba(0,0,0,0.5)',
-  }
-});
+}));
 
-const SliderOverlay = styled(Box)({
+const AfterLabel = styled(Typography)(({ theme }) => ({
+  position: 'absolute',
+  top: theme.spacing(2),
+  right: theme.spacing(2),
+  backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  color: 'white',
+  padding: theme.spacing(0.5, 1),
+  borderRadius: theme.shape.borderRadius,
+  zIndex: 3,
+}));
+
+const SliderOverlay = styled(Box)(({ theme }) => ({
   position: 'absolute',
   top: 0,
-  left: 0,
-  width: '50%',
   height: '100%',
-  backgroundColor: 'rgba(0,0,0,0.1)',
-  zIndex: 2,
-});
+  backgroundColor: 'rgba(0, 0, 0, 0.1)',
+  zIndex: 3,
+  pointerEvents: 'none',
+}));
+
+const SliderContainer = styled(Box)(({ theme }) => ({
+  position: 'absolute',
+  top: 0,
+  bottom: 0,
+  width: '4px',
+  backgroundColor: 'white',
+  zIndex: 3,
+  pointerEvents: 'none',
+  boxShadow: '0 0 10px rgba(0,0,0,0.3)',
+}));
 
 const JobCard = styled(Card)(({ theme }) => ({
   height: '100%',
@@ -123,32 +122,6 @@ const JobCard = styled(Card)(({ theme }) => ({
   '&:hover': {
     transform: 'translateY(-5px)',
   },
-}));
-
-const BeforeLabel = styled(Box)(({ theme }) => ({
-  position: 'absolute',
-  top: 16,
-  left: 16,
-  padding: '4px 12px',
-  backgroundColor: 'rgba(0, 0, 0, 0.7)',
-  color: 'white',
-  borderRadius: theme.shape.borderRadius,
-  fontSize: '0.875rem',
-  fontWeight: 500,
-  zIndex: 3,
-}));
-
-const AfterLabel = styled(Box)(({ theme }) => ({
-  position: 'absolute',
-  top: 16,
-  right: 16,
-  padding: '4px 12px',
-  backgroundColor: 'rgba(0, 0, 0, 0.7)',
-  color: 'white',
-  borderRadius: theme.shape.borderRadius,
-  fontSize: '0.875rem',
-  fontWeight: 500,
-  zIndex: 3,
 }));
 
 const JobsPage = () => {
@@ -210,7 +183,7 @@ const JobsPage = () => {
         
         <Grid container spacing={6} justifyContent="center">
           {jobs.map((job, index) => (
-            <Grid item xs={12} sm={6} md={4} key={index}>
+            <Grid item key={index} sx={{ xs: 12, sm: 6, md: 4 }}>
               <JobCard>
                 {index === 0 ? (
                   <VerticalBeforeAfterContainer>
@@ -276,17 +249,7 @@ const JobsPage = () => {
                     />
                   </VerticalBeforeAfterContainer>
                 ) : (
-                  <Box sx={{ 
-                    position: 'relative',
-                    width: '100%',
-                    height: 0,
-                    paddingTop: imageRatios[index] ? `${imageRatios[index]}%` : '75%',
-                    overflow: 'hidden',
-                    borderRadius: theme.shape.borderRadius,
-                    marginBottom: theme.spacing(2),
-                    boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
-                    backgroundColor: '#f5f5f5',
-                  }}>
+                  <BeforeAfterContainer>
                     <BeforeLabel>Antes</BeforeLabel>
                     <AfterLabel>Después</AfterLabel>
                     <img
@@ -347,13 +310,13 @@ const JobsPage = () => {
                         },
                       }}
                     />
-                  </Box>
+                  </BeforeAfterContainer>
                 )}
-                <CardContent sx={{ flexGrow: 1, p: 3 }}>
-                  <Typography gutterBottom variant="h5" component="h2" sx={{ fontWeight: 'bold', mb: 2 }}>
+                <CardContent>
+                  <Typography variant="h6" gutterBottom>
                     {job.title}
                   </Typography>
-                  <Typography sx={{ lineHeight: 1.8 }}>
+                  <Typography variant="body2" color="text.secondary">
                     {job.description}
                   </Typography>
                 </CardContent>
