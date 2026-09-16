@@ -9,30 +9,112 @@ interface Project {
   loc: string;
   days: number;
   m2: number;
-  y: boolean;
-  span: string;
+  img: string;
+  gallery: string[];
+  blurb: string;
 }
 
 const projects: Project[] = [
-  { id: 1, t: "Loft Lavapiés", cat: "Pladur", loc: "Madrid", days: 11, m2: 78, y: true, span: "5 / 2" },
-  { id: 2, t: "Oficina Atocha", cat: "Techos", loc: "Madrid", days: 6, m2: 180, y: false, span: "4 / 2" },
-  { id: 3, t: "Chalet Las Rozas", cat: "Aislamientos", loc: "Las Rozas", days: 18, m2: 260, y: false, span: "3 / 2" },
-  { id: 4, t: "Bar Malasaña", cat: "Reformas", loc: "Madrid", days: 24, m2: 95, y: true, span: "4 / 2" },
-  { id: 5, t: "Ático Chamberí", cat: "Pladur", loc: "Madrid", days: 9, m2: 62, y: false, span: "4 / 2" },
-  { id: 6, t: "Coworking Getafe", cat: "Aislamientos", loc: "Getafe", days: 14, m2: 340, y: false, span: "4 / 2" },
-  { id: 7, t: "Restaurante Sol", cat: "Techos", loc: "Madrid", days: 8, m2: 140, y: true, span: "4 / 2" },
-  { id: 8, t: "Vivienda Pozuelo", cat: "Reformas", loc: "Pozuelo", days: 32, m2: 120, y: false, span: "4 / 2" },
+  {
+    id: 1,
+    t: "Techo registrable",
+    cat: "Techos",
+    loc: "Madrid",
+    days: 8,
+    m2: 140,
+    img: "/images/techo-registrable.jpg",
+    gallery: [
+      "/images/techo-registrable.jpg",
+      "/images/techo-registrable-sala.jpg",
+      "/images/techo-registrable-montaje.jpg",
+    ],
+    blurb:
+      "Techo registrable de placas blancas sobre perfilería vista. Rejillas de climatización integradas, paramentos lisos y suelo ya protegido en la entrega.",
+  },
+  {
+    id: 2,
+    t: "Techo continuo oficina",
+    cat: "Techos",
+    loc: "Madrid",
+    days: 12,
+    m2: 320,
+    img: "/images/techo-continuo-oficina.jpg",
+    gallery: ["/images/techo-continuo-oficina.jpg"],
+    blurb:
+      "Placas de pladur en continuo sobre estructura, con pasos de instalaciones y huecos de luminaria. Montaje en local comercial en obra.",
+  },
+  {
+    id: 3,
+    t: "Librería a medida",
+    cat: "Pladur",
+    loc: "Madrid",
+    days: 6,
+    m2: 12,
+    img: "/images/libreria-pladur.jpg",
+    gallery: ["/images/libreria-pladur.jpg"],
+    blurb:
+      "Mueble de pladur empotrado: huecos a distinta altura, zócalo, cornisa y hueco superior para iluminación. Listo para pintar y vestir.",
+  },
+  {
+    id: 4,
+    t: "Local con techo LED",
+    cat: "Reformas",
+    loc: "Madrid",
+    days: 10,
+    m2: 85,
+    img: "/images/techo-led-local.jpg",
+    gallery: ["/images/techo-led-local.jpg"],
+    blurb:
+      "Techo continuo con cajón central, tira LED perimetral y lámpara vista. Acabado de local de hostelería, listo para abrir.",
+  },
+  {
+    id: 5,
+    t: "Estantería empotrada",
+    cat: "Pladur",
+    loc: "Madrid",
+    days: 5,
+    m2: 10,
+    img: "/images/estanteria-pladur.jpg",
+    gallery: ["/images/estanteria-pladur.jpg"],
+    blurb:
+      "Estantería de pladur de suelo a techo, doble calle y baldas a distinta cota. Encaje con molduras existentes de la vivienda.",
+  },
+  {
+    id: 6,
+    t: "Techo de celosía",
+    cat: "Techos",
+    loc: "Madrid",
+    days: 14,
+    m2: 180,
+    img: "/images/techo-celosia.jpg",
+    gallery: [
+      "/images/techo-celosia.jpg",
+      "/images/techo-celosia-obra.jpg",
+      "/images/cuadrilla-entrega.jpg",
+    ],
+    blurb:
+      "Techo de celosía negra con luminarias y cassette de climatización. Coordinado con conductos y pasos de instalaciones vistos por registro.",
+  },
 ];
 
-const cats = ["Todo", "Pladur", "Aislamientos", "Techos", "Reformas"];
+const cats = ["Todo", "Pladur", "Techos", "Reformas"];
 
 export default function ProjectGrid() {
   const [filter, setFilter] = useState("Todo");
   const [modal, setModal] = useState<Project | null>(null);
+  const [shot, setShot] = useState(0);
 
   const list = filter === "Todo" ? projects : projects.filter((p) => p.cat === filter);
 
-  const closeModal = useCallback(() => setModal(null), []);
+  const closeModal = useCallback(() => {
+    setModal(null);
+    setShot(0);
+  }, []);
+
+  const openModal = (p: Project) => {
+    setShot(0);
+    setModal(p);
+  };
 
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
@@ -55,7 +137,7 @@ export default function ProjectGrid() {
         <div className="section-head">
           <div>
             <div className="kicker"><span className="num">03</span> Obras recientes</div>
-            <h2 className="section-title">820 obras.<br />Esto es lo último.</h2>
+            <h2 className="section-title">Obra real.<br />Esto es lo último.</h2>
             <div className="filters">
               {cats.map((c) => (
                 <button
@@ -69,51 +151,57 @@ export default function ProjectGrid() {
             </div>
           </div>
           <p className="section-lead">
-            Filtra por especialidad. Toca cualquier obra para ver ficha técnica completa, materiales
-            y plazo real de ejecución.
+            Fotos de obra propia: techos registrables, continuos, celosía y pladur a medida.
+            Toca cualquier ficha para ver el detalle.
           </p>
         </div>
 
         <div className="grid">
-          {list.map((p, i) => {
-            const [colSpan, rowSpan] = p.span.split(" / ").map(Number);
-            return (
-              <div
-                key={p.id}
-                className={`card${p.y ? " y" : ""}`}
-                style={{
-                  gridColumn: `span ${colSpan}`,
-                  gridRow: `span ${rowSpan}`,
-                }}
-                onClick={() => setModal(p)}
-              >
-                <div className="ph" />
+          {list.map((p, i) => (
+            <div key={p.id} className="card" onClick={() => openModal(p)}>
+              <div className="card-media">
+                <img className="card-img" src={p.img} alt={p.t} />
+              </div>
+              <div className="card-info">
+                <div className="card-title">{p.t}</div>
                 <div className="card-num">
                   {String(i + 1).padStart(2, "0")} / {String(list.length).padStart(2, "0")}
                 </div>
-                <div className="card-title">{p.t}</div>
                 <div className="card-meta">
                   <span>{p.cat}</span>
                   <span>{p.loc} · {p.days}d</span>
                 </div>
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* Modal */}
       <div
         className={`modal${modal ? " show" : ""}`}
         onClick={(e) => { if ((e.target as HTMLElement).classList.contains("modal")) closeModal(); }}
       >
         {modal && (
           <div className="modal-card">
-            <div
-              className="modal-img"
-              style={{ background: modal.y ? "var(--yellow)" : "#16161A" }}
-            >
-              <div className="ph" />
+            <div className="modal-img">
+              <img
+                src={modal.gallery[shot]}
+                alt={modal.t}
+              />
+              {modal.gallery.length > 1 && (
+                <div className="modal-thumbs">
+                  {modal.gallery.map((src, i) => (
+                    <button
+                      key={src}
+                      className={`modal-thumb${shot === i ? " on" : ""}`}
+                      onClick={() => setShot(i)}
+                      aria-label={`Foto ${i + 1}`}
+                    >
+                      <img src={src} alt="" />
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
             <div className="modal-body">
               <button className="modal-close" onClick={closeModal}>×</button>
@@ -122,9 +210,7 @@ export default function ProjectGrid() {
               </div>
               <h3>{modal.t}</h3>
               <p style={{ margin: 0, fontSize: "15px", lineHeight: 1.55, color: "#3a3a3e" }}>
-                Obra de {modal.cat.toLowerCase()} ejecutada en {modal.loc}. {modal.m2} m² entregados
-                en {modal.days} días naturales. Cuadrilla propia de 3 oficiales y 1 ayudante.
-                Materiales certificados y partes diarios al cliente.
+                {modal.blurb}
               </p>
               <div className="modal-meta">
                 <div><b>Superficie</b>{modal.m2} m²</div>

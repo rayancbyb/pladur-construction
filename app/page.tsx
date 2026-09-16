@@ -57,6 +57,30 @@ export default function HomePage() {
             </p>
           </div>
         </div>
+
+        <div className="obra-strip">
+          <figure className="obra-shot">
+            <img
+              src="/images/techo-registrable-montaje.jpg"
+              alt="Oficial en andamio colocando placas de techo registrable"
+            />
+            <figcaption>01 · Montaje en andamio</figcaption>
+          </figure>
+          <figure className="obra-shot">
+            <img
+              src="/images/techo-celosia-obra.jpg"
+              alt="Instalación de techo de celosía coordinada con climatización"
+            />
+            <figcaption>02 · Celosía + instalaciones</figcaption>
+          </figure>
+          <figure className="obra-shot">
+            <img
+              src="/images/cuadrilla-entrega.jpg"
+              alt="Cuadrilla al entregar un local con techo de celosía"
+            />
+            <figcaption>03 · Entrega de local</figcaption>
+          </figure>
+        </div>
       </section>
 
       <StatsCounter />

@@ -3,10 +3,10 @@
 import { useState } from "react";
 
 const services = [
-  { n: "01", t: "Pladur", desc: "Tabiques, trasdosados, particiones y cajones. Pladur estándar, ignífugo, hidrófugo o acústico — según la obra.", tag: "Knauf · Pladur · 13/15 mm" },
-  { n: "02", t: "Aislamientos", desc: "Lana de roca, lana de vidrio, EPS y proyectado. Térmico, acústico y para fachadas ventiladas.", tag: "Térmico · Acústico · Cubiertas" },
-  { n: "03", t: "Techos", desc: "Techos continuos, registrables y desniveles iluminados. Empotrados de tira LED y luminarias incluidas.", tag: "Continuos · Registrables · LED" },
-  { n: "04", t: "Reformas", desc: "Reforma integral coordinada — albañilería, pladur, electricidad, fontanería y pintura con una sola interlocución.", tag: "Llave en mano" },
+  { n: "01", t: "Pladur", desc: "Tabiques, trasdosados, particiones y cajones. Pladur estándar, ignífugo, hidrófugo o acústico — según la obra.", tag: "Knauf · Pladur · 13/15 mm", img: "/images/libreria-pladur.jpg" },
+  { n: "02", t: "Aislamientos", desc: "Lana de roca, lana de vidrio, EPS y proyectado. Térmico, acústico y para fachadas ventiladas.", tag: "Térmico · Acústico · Cubiertas", img: "/images/techo-celosia-obra.jpg" },
+  { n: "03", t: "Techos", desc: "Techos continuos, registrables y desniveles iluminados. Empotrados de tira LED y luminarias incluidas.", tag: "Continuos · Registrables · LED", img: "/images/techo-celosia.jpg" },
+  { n: "04", t: "Reformas", desc: "Reforma integral coordinada — albañilería, pladur, electricidad, fontanería y pintura con una sola interlocución.", tag: "Llave en mano", img: "/images/techo-led-local.jpg" },
 ];
 
 export default function Services() {
@@ -31,15 +31,20 @@ export default function Services() {
             className={`svc${active === s.n ? " active" : ""}`}
             onClick={() => setActive(s.n)}
           >
-            <div className="svc-top">
-              <span className="svc-num">{s.n}/04</span>
-              <svg className="svc-arrow" viewBox="0 0 24 24" fill="none">
-                <path d="M7 17 17 7M9 7h8v8" stroke="currentColor" strokeWidth="2" />
-              </svg>
+            <div className="svc-photo">
+              <img src={s.img} alt="" />
             </div>
-            <h3>{s.t}</h3>
-            <p>{s.desc}</p>
-            <div className="svc-tag">{s.tag}</div>
+            <div className="svc-body">
+              <div className="svc-top">
+                <span className="svc-num">{s.n}/04</span>
+                <svg className="svc-arrow" viewBox="0 0 24 24" fill="none">
+                  <path d="M7 17 17 7M9 7h8v8" stroke="currentColor" strokeWidth="2" />
+                </svg>
+              </div>
+              <h3>{s.t}</h3>
+              <p>{s.desc}</p>
+              <div className="svc-tag">{s.tag}</div>
+            </div>
           </div>
         ))}
       </div>

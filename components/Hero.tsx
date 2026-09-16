@@ -45,11 +45,14 @@ export default function Hero() {
 
         <div className="hero-visual">
           <div className="hero-img-wrap">
-            <img src="/images/herramientas.png" alt="Herramientas Chairi" />
-            <div className="img-stamp">REF · 02 / Cuadrilla nº4</div>
+            <img
+              src="/images/hero-cuadrilla.jpg"
+              alt="Oficial de Aislamientos Chairi montando techo de pladur"
+            />
+            <div className="img-stamp">REF · 05 / Cuadrilla en obra</div>
             <div className="img-caption">
-              <span>Obra Vallecas — tabique pladur 13mm</span>
-              <span>40.4168° N / 3.7038° W</span>
+              <span>Techo de pladur — montaje en altura</span>
+              <span>Madrid</span>
             </div>
           </div>
         </div>
