@@ -1,10 +1,22 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Aislamientos Chairi · Pladur, aislamiento y reformas",
+  title: "Aislamientos Chairi · Pladur, aislamiento y reformas en Ceuta",
   description:
-    "Especialistas en pladur, aislamiento térmico y acústico y reformas integrales en Madrid y alrededores.",
+    "Especialistas en pladur, aislamiento térmico y acústico y reformas integrales en Ceuta. Cuadrilla propia, presupuesto cerrado y 2 años de garantía.",
+  openGraph: {
+    title: "Aislamientos Chairi · Ceuta",
+    description: "Pladur, aislamiento y reformas en Ceuta. Obra limpia, plazo real y acabado de verdad.",
+    locale: "es_ES",
+    type: "website",
+  },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#FFD60A",
 };
 
 export default function RootLayout({

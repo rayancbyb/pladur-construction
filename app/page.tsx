@@ -4,9 +4,8 @@ import Hero from "@/components/Hero";
 import Services from "@/components/Services";
 import StatsCounter from "@/components/StatsCounter";
 import ProjectGrid from "@/components/ProjectGrid";
-import Calculator from "@/components/Calculator";
-import ContactForm from "@/components/ContactForm";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import { SITE } from "@/lib/site";
 
 export default function HomePage() {
   return (
@@ -24,8 +23,8 @@ export default function HomePage() {
             <h2 className="section-title">De la visita<br />al último remate.</h2>
           </div>
           <p className="section-lead" style={{ color: "#bbb" }}>
-            Sin desapariciones a media obra. Tendrás un jefe de cuadrilla con nombre y teléfono y un
-            parte fotográfico cada viernes.
+            Sin desapariciones a media obra. En Ceuta estamos cerca: jefe de cuadrilla con nombre
+            y teléfono, y parte fotográfico cada viernes.
           </p>
         </div>
         <div className="steps">
@@ -33,7 +32,7 @@ export default function HomePage() {
             <div className="step-dot" />
             <div className="step-n">01</div>
             <h4>Visita y medición</h4>
-            <p>Pasamos por la obra en 48 h. Medimos, fotografiamos, escuchamos. Sin compromiso.</p>
+            <p>Pasamos por la obra el mismo día o al siguiente. Medimos, fotografiamos, escuchamos. Sin compromiso.</p>
           </div>
           <div className="step">
             <div className="step-dot" />
@@ -61,10 +60,10 @@ export default function HomePage() {
         <div className="obra-strip">
           <figure className="obra-shot">
             <img
-              src="/images/techo-registrable-montaje.jpg"
-              alt="Oficial en andamio colocando placas de techo registrable"
+              src="/images/tabique-pladur-nave.jpg"
+              alt="Oficial atornillando placas de pladur en un tabique de nave"
             />
-            <figcaption>01 · Montaje en andamio</figcaption>
+            <figcaption>01 · Tabique en nave</figcaption>
           </figure>
           <figure className="obra-shot">
             <img
@@ -85,16 +84,15 @@ export default function HomePage() {
 
       <StatsCounter />
       <ProjectGrid />
-      <Calculator />
 
       {/* Testimonials */}
       <section className="section">
         <div className="section-head">
           <div>
-            <div className="kicker"><span className="num">05</span> Lo que dicen</div>
+            <div className="kicker"><span className="num">04</span> Lo que dicen</div>
             <h2 className="section-title">Clientes que han<br />vivido la obra.</h2>
           </div>
-          <p className="section-lead">Reseñas reales de Google y boca a boca. Recogidas tras la entrega — no antes.</p>
+          <p className="section-lead">Vecinos y locales de Ceuta. Recogidas tras la entrega — no antes.</p>
         </div>
         <div className="quotes">
           <div className="quote">
@@ -107,7 +105,7 @@ export default function HomePage() {
               <div className="avatar">MR</div>
               <div>
                 <div className="nm">Marta R.</div>
-                <div className="rl">Reforma piso · Chamberí</div>
+                <div className="rl">Reforma piso · Hadú</div>
               </div>
               <div className="stars" style={{ marginLeft: "auto" }}>★★★★★</div>
             </div>
@@ -122,7 +120,7 @@ export default function HomePage() {
               <div className="avatar">JL</div>
               <div>
                 <div className="nm">Javier L.</div>
-                <div className="rl">Aislam. acústico · Getafe</div>
+                <div className="rl">Aislam. acústico · El Tarajal</div>
               </div>
               <div className="stars" style={{ marginLeft: "auto" }}>★★★★★</div>
             </div>
@@ -137,7 +135,7 @@ export default function HomePage() {
               <div className="avatar">CP</div>
               <div>
                 <div className="nm">Carla P.</div>
-                <div className="rl">Reforma local · Alcorcón</div>
+                <div className="rl">Reforma local · Recinto</div>
               </div>
               <div className="stars" style={{ marginLeft: "auto" }}>★★★★★</div>
             </div>
@@ -149,11 +147,11 @@ export default function HomePage() {
       <section className="contact-wrap" id="contacto">
         <div className="contact">
           <div>
-            <div className="kicker"><span className="num">06</span> Hablemos</div>
+            <div className="kicker"><span className="num">05</span> Hablemos</div>
             <h2 className="section-title">Cuéntanos<br />tu obra.</h2>
             <p className="section-lead" style={{ color: "#bbb", marginTop: 18 }}>
-              Contestamos por WhatsApp en menos de una hora, en horario laboral. Para obra ya
-              iniciada, llámanos directamente — vamos a tope.
+              Contestamos por WhatsApp en menos de una hora, en horario laboral. Estamos en Ceuta:
+              si la obra ya está en marcha, llámanos y pasamos.
             </p>
             <div className="contact-info" style={{ marginTop: 34 }}>
               <div className="info-row">
@@ -164,8 +162,8 @@ export default function HomePage() {
                 </div>
                 <div>
                   <h5>Teléfono · WhatsApp</h5>
-                  <p>+34 642 18 90 23</p>
-                  <small>Lun–Vie 8:00–18:00 · Sáb 9:00–13:00</small>
+                  <p><a href={SITE.phoneHref}>{SITE.phone}</a></p>
+                  <small>{SITE.hours}</small>
                 </div>
               </div>
               <div className="info-row">
@@ -177,7 +175,7 @@ export default function HomePage() {
                 </div>
                 <div>
                   <h5>Correo</h5>
-                  <p>info@aislamientoschairi.es</p>
+                  <p><a href={SITE.emailHref}>{SITE.email}</a></p>
                   <small>Respondemos en menos de 24 horas</small>
                 </div>
               </div>
@@ -189,14 +187,26 @@ export default function HomePage() {
                   </svg>
                 </div>
                 <div>
-                  <h5>Nave taller</h5>
-                  <p>C/ del Olivar, 14 · Móstoles</p>
-                  <small>Visitas con cita previa</small>
+                  <h5>Dónde estamos</h5>
+                  <p>Ceuta · Toda la ciudad</p>
+                  <small>Visitas a obra con cita · También locales y naves</small>
                 </div>
               </div>
             </div>
+            <div className="contact-actions">
+              <a
+                className="btn btn-y"
+                href={SITE.waHref}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Escribir por WhatsApp
+              </a>
+              <a className="btn btn-ghost contact-call" href={SITE.phoneHref}>
+                Llamar
+              </a>
+            </div>
           </div>
-          <ContactForm />
         </div>
       </section>
 
@@ -218,39 +228,38 @@ export default function HomePage() {
             <div className="foot-big" style={{ color: "var(--yellow)" }}>
               Obra que<br />no se cae.
             </div>
-            <div className="foot-tag">EST. 2008 · MADRID · ESPAÑA</div>
+            <div className="foot-tag">EST. 2008 · CEUTA · ESPAÑA</div>
           </div>
           <div>
             <h6>Servicios</h6>
             <ul>
-              <li><a>Pladur</a></li>
-              <li><a>Aislamiento térmico</a></li>
-              <li><a>Aislamiento acústico</a></li>
-              <li><a>Techos continuos</a></li>
-              <li><a>Reformas integrales</a></li>
+              <li><a href="#servicios">Pladur</a></li>
+              <li><a href="#servicios">Aislamiento térmico</a></li>
+              <li><a href="#servicios">Aislamiento acústico</a></li>
+              <li><a href="#servicios">Techos continuos</a></li>
+              <li><a href="#servicios">Reformas integrales</a></li>
             </ul>
           </div>
           <div>
             <h6>Empresa</h6>
             <ul>
-              <li><a>Sobre nosotros</a></li>
-              <li><a>Obras</a></li>
-              <li><a>Cuadrilla</a></li>
-              <li><a>Trabaja con nosotros</a></li>
+              <li><a href="#proceso">Cómo trabajamos</a></li>
+              <li><a href="#obras">Obras</a></li>
+              <li><a href="#contacto">Contacto</a></li>
             </ul>
           </div>
           <div>
             <h6>Contacto</h6>
             <ul>
-              <li>+34 642 18 90 23</li>
-              <li>info@aislamientoschairi.es</li>
-              <li>C/ del Olivar 14, Móstoles</li>
+              <li><a href={SITE.phoneHref}>{SITE.phone}</a></li>
+              <li><a href={SITE.emailHref}>{SITE.email}</a></li>
+              <li>Ceuta · Toda la ciudad</li>
             </ul>
           </div>
         </div>
         <div className="foot-bottom">
-          <span>© 2026 Aislamientos Chairi S.L. · CIF B-87654321</span>
-          <span>Aviso legal · Privacidad · Cookies</span>
+          <span>© 2026 Aislamientos Chairi · Ceuta</span>
+          <span>Presupuesto sin compromiso</span>
         </div>
       </footer>
 

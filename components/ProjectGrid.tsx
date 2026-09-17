@@ -19,7 +19,7 @@ const projects: Project[] = [
     id: 1,
     t: "Techo registrable",
     cat: "Techos",
-    loc: "Madrid",
+    loc: "Hadú",
     days: 8,
     m2: 140,
     img: "/images/techo-registrable.jpg",
@@ -35,7 +35,7 @@ const projects: Project[] = [
     id: 2,
     t: "Techo continuo oficina",
     cat: "Techos",
-    loc: "Madrid",
+    loc: "Recinto",
     days: 12,
     m2: 320,
     img: "/images/techo-continuo-oficina.jpg",
@@ -47,7 +47,7 @@ const projects: Project[] = [
     id: 3,
     t: "Librería a medida",
     cat: "Pladur",
-    loc: "Madrid",
+    loc: "Juan Carlos I",
     days: 6,
     m2: 12,
     img: "/images/libreria-pladur.jpg",
@@ -59,7 +59,7 @@ const projects: Project[] = [
     id: 4,
     t: "Local con techo LED",
     cat: "Reformas",
-    loc: "Madrid",
+    loc: "Centro",
     days: 10,
     m2: 85,
     img: "/images/techo-led-local.jpg",
@@ -71,7 +71,7 @@ const projects: Project[] = [
     id: 5,
     t: "Estantería empotrada",
     cat: "Pladur",
-    loc: "Madrid",
+    loc: "Sarchal",
     days: 5,
     m2: 10,
     img: "/images/estanteria-pladur.jpg",
@@ -83,7 +83,7 @@ const projects: Project[] = [
     id: 6,
     t: "Techo de celosía",
     cat: "Techos",
-    loc: "Madrid",
+    loc: "El Tarajal",
     days: 14,
     m2: 180,
     img: "/images/techo-celosia.jpg",
@@ -94,6 +94,30 @@ const projects: Project[] = [
     ],
     blurb:
       "Techo de celosía negra con luminarias y cassette de climatización. Coordinado con conductos y pasos de instalaciones vistos por registro.",
+  },
+  {
+    id: 7,
+    t: "Tabique de pladur",
+    cat: "Pladur",
+    loc: "Polígono",
+    days: 9,
+    m2: 95,
+    img: "/images/tabique-pladur-nave.jpg",
+    gallery: ["/images/tabique-pladur-nave.jpg"],
+    blurb:
+      "Tabique de pladur sobre perfilería metálica, con huecos de carpintería. Placas atornilladas en nave, estructura vista en los vanos y suelo de hormigón.",
+  },
+  {
+    id: 8,
+    t: "Trasdosado con aislamiento",
+    cat: "Pladur",
+    loc: "Príncipe Alfonso",
+    days: 7,
+    m2: 48,
+    img: "/images/trasdosado-aislamiento.jpg",
+    gallery: ["/images/trasdosado-aislamiento.jpg"],
+    blurb:
+      "Trasdosado de perfilería con lana mineral y placa hidrófuga verde. Conducto Isover Climaver a techo y pasos de instalaciones vistos: aislamiento térmico y acústico de obra.",
   },
 ];
 
@@ -151,7 +175,7 @@ export default function ProjectGrid() {
             </div>
           </div>
           <p className="section-lead">
-            Fotos de obra propia: techos registrables, continuos, celosía y pladur a medida.
+            Fotos de obra propia: tabiques, trasdosados con lana, techos y pladur a medida.
             Toca cualquier ficha para ver el detalle.
           </p>
         </div>
@@ -160,7 +184,7 @@ export default function ProjectGrid() {
           {list.map((p, i) => (
             <div key={p.id} className="card" onClick={() => openModal(p)}>
               <div className="card-media">
-                <img className="card-img" src={p.img} alt={p.t} />
+                <img className="card-img" src={p.img} alt={p.t} loading="lazy" />
               </div>
               <div className="card-info">
                 <div className="card-title">{p.t}</div>

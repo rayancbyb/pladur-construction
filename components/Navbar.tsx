@@ -1,9 +1,21 @@
 "use client";
 
+import { useEffect, useState } from "react";
+
 export default function Navbar() {
+  const [open, setOpen] = useState(false);
+
   const scrollTo = (id: string) => {
+    setOpen(false);
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
+
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
 
   return (
     <nav className="nav">
@@ -18,7 +30,7 @@ export default function Navbar() {
           AISLAMIENTOS
           <br />
           CHAIRI
-          <small>PLADUR · AISLAM. · REFORMAS</small>
+          <small>PLADUR · CEUTA · REFORMAS</small>
         </div>
       </div>
 
@@ -26,14 +38,26 @@ export default function Navbar() {
         <a href="#servicios" onClick={(e) => { e.preventDefault(); scrollTo("servicios"); }}>Servicios</a>
         <a href="#proceso" onClick={(e) => { e.preventDefault(); scrollTo("proceso"); }}>Proceso</a>
         <a href="#obras" onClick={(e) => { e.preventDefault(); scrollTo("obras"); }}>Obras</a>
-        <a href="#presupuesto" onClick={(e) => { e.preventDefault(); scrollTo("presupuesto"); }}>Presupuesto</a>
         <a href="#contacto" onClick={(e) => { e.preventDefault(); scrollTo("contacto"); }}>Contacto</a>
       </div>
 
-      <button className="nav-cta" onClick={() => scrollTo("contacto")}>
-        <span className="dot" />
-        Pedir Presupuesto
+      <button
+        className={`nav-burger${open ? " on" : ""}`}
+        aria-label={open ? "Cerrar menú" : "Abrir menú"}
+        aria-expanded={open}
+        onClick={() => setOpen((v) => !v)}
+      >
+        <span />
+        <span />
+        <span />
       </button>
+
+      <div className={`nav-drawer${open ? " show" : ""}`}>
+        <a href="#servicios" onClick={(e) => { e.preventDefault(); scrollTo("servicios"); }}>Servicios</a>
+        <a href="#proceso" onClick={(e) => { e.preventDefault(); scrollTo("proceso"); }}>Proceso</a>
+        <a href="#obras" onClick={(e) => { e.preventDefault(); scrollTo("obras"); }}>Obras</a>
+        <a href="#contacto" onClick={(e) => { e.preventDefault(); scrollTo("contacto"); }}>Contacto</a>
+      </div>
     </nav>
   );
 }

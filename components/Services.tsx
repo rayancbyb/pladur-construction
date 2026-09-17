@@ -3,8 +3,8 @@
 import { useState } from "react";
 
 const services = [
-  { n: "01", t: "Pladur", desc: "Tabiques, trasdosados, particiones y cajones. Pladur estándar, ignífugo, hidrófugo o acústico — según la obra.", tag: "Knauf · Pladur · 13/15 mm", img: "/images/libreria-pladur.jpg" },
-  { n: "02", t: "Aislamientos", desc: "Lana de roca, lana de vidrio, EPS y proyectado. Térmico, acústico y para fachadas ventiladas.", tag: "Térmico · Acústico · Cubiertas", img: "/images/techo-celosia-obra.jpg" },
+  { n: "01", t: "Pladur", desc: "Tabiques, trasdosados, particiones y cajones. Pladur estándar, ignífugo, hidrófugo o acústico — según la obra.", tag: "Knauf · Pladur · 13/15 mm", img: "/images/tabique-pladur-nave.jpg" },
+  { n: "02", t: "Aislamientos", desc: "Lana de roca, lana de vidrio, EPS y proyectado. Térmico, acústico y para fachadas ventiladas.", tag: "Térmico · Acústico · Cubiertas", img: "/images/trasdosado-aislamiento.jpg" },
   { n: "03", t: "Techos", desc: "Techos continuos, registrables y desniveles iluminados. Empotrados de tira LED y luminarias incluidas.", tag: "Continuos · Registrables · LED", img: "/images/techo-celosia.jpg" },
   { n: "04", t: "Reformas", desc: "Reforma integral coordinada — albañilería, pladur, electricidad, fontanería y pintura con una sola interlocución.", tag: "Llave en mano", img: "/images/techo-led-local.jpg" },
 ];

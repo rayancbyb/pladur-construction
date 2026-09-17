@@ -2,12 +2,13 @@
 
 const items = [
   "PLADUR DE OBRA REAL",
+  "CEUTA",
   "AISLAMIENTO TÉRMICO + ACÚSTICO",
   "TECHOS CONTINUOS",
   "REFORMAS INTEGRALES",
   "CUADRILLA PROPIA",
   "2 AÑOS DE GARANTÍA",
-  "PRESUPUESTO EN 48 H",
+  "VISITA EN 24 H",
 ];
 
 export default function Tape() {
