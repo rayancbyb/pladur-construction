@@ -1,6 +1,14 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import SiteImage from "@/components/SiteImage";
+
+interface Shot {
+  src: string;
+  w: number;
+  h: number;
+  alt: string;
+}
 
 interface Project {
   id: number;
@@ -10,7 +18,10 @@ interface Project {
   days: number;
   m2: number;
   img: string;
-  gallery: string[];
+  w: number;
+  h: number;
+  alt: string;
+  gallery: Shot[];
   blurb: string;
 }
 
@@ -22,11 +33,14 @@ const projects: Project[] = [
     loc: "Hadú",
     days: 8,
     m2: 140,
-    img: "/images/techo-registrable.jpg",
+    img: "/images/techo-registrable.webp",
+    w: 1086,
+    h: 1448,
+    alt: "Techo registrable de placas blancas instalado en un local de Hadú, Ceuta",
     gallery: [
-      "/images/techo-registrable.jpg",
-      "/images/techo-registrable-sala.jpg",
-      "/images/techo-registrable-montaje.jpg",
+      { src: "/images/techo-registrable.webp", w: 1086, h: 1448, alt: "Techo registrable de placas blancas instalado en un local de Hadú, Ceuta" },
+      { src: "/images/techo-registrable-sala.webp", w: 1086, h: 1448, alt: "Sala con techo registrable y paramentos lisos en una obra de Ceuta" },
+      { src: "/images/techo-registrable-montaje.webp", w: 901, h: 1600, alt: "Oficial en andamio colocando placas de techo registrable en Ceuta" },
     ],
     blurb:
       "Techo registrable de placas blancas sobre perfilería vista. Rejillas de climatización integradas, paramentos lisos y suelo ya protegido en la entrega.",
@@ -38,8 +52,13 @@ const projects: Project[] = [
     loc: "Recinto",
     days: 12,
     m2: 320,
-    img: "/images/techo-continuo-oficina.jpg",
-    gallery: ["/images/techo-continuo-oficina.jpg"],
+    img: "/images/techo-continuo-oficina.webp",
+    w: 900,
+    h: 1600,
+    alt: "Techo continuo de pladur en montaje en una oficina del Recinto, Ceuta",
+    gallery: [
+      { src: "/images/techo-continuo-oficina.webp", w: 900, h: 1600, alt: "Techo continuo de pladur en montaje en una oficina del Recinto, Ceuta" },
+    ],
     blurb:
       "Placas de pladur en continuo sobre estructura, con pasos de instalaciones y huecos de luminaria. Montaje en local comercial en obra.",
   },
@@ -50,8 +69,13 @@ const projects: Project[] = [
     loc: "Juan Carlos I",
     days: 6,
     m2: 12,
-    img: "/images/libreria-pladur.jpg",
-    gallery: ["/images/libreria-pladur.jpg"],
+    img: "/images/libreria-pladur.webp",
+    w: 1086,
+    h: 1448,
+    alt: "Librería de pladur a medida empotrada en una vivienda de Juan Carlos I, Ceuta",
+    gallery: [
+      { src: "/images/libreria-pladur.webp", w: 1086, h: 1448, alt: "Librería de pladur a medida empotrada en una vivienda de Juan Carlos I, Ceuta" },
+    ],
     blurb:
       "Mueble de pladur empotrado: huecos a distinta altura, zócalo, cornisa y hueco superior para iluminación. Listo para pintar y vestir.",
   },
@@ -62,8 +86,13 @@ const projects: Project[] = [
     loc: "Centro",
     days: 10,
     m2: 85,
-    img: "/images/techo-led-local.jpg",
-    gallery: ["/images/techo-led-local.jpg"],
+    img: "/images/techo-led-local.webp",
+    w: 720,
+    h: 1600,
+    alt: "Techo continuo con tira LED perimetral en un local del centro de Ceuta",
+    gallery: [
+      { src: "/images/techo-led-local.webp", w: 720, h: 1600, alt: "Techo continuo con tira LED perimetral en un local del centro de Ceuta" },
+    ],
     blurb:
       "Techo continuo con cajón central, tira LED perimetral y lámpara vista. Acabado de local de hostelería, listo para abrir.",
   },
@@ -74,8 +103,13 @@ const projects: Project[] = [
     loc: "Sarchal",
     days: 5,
     m2: 10,
-    img: "/images/estanteria-pladur.jpg",
-    gallery: ["/images/estanteria-pladur.jpg"],
+    img: "/images/estanteria-pladur.webp",
+    w: 900,
+    h: 1600,
+    alt: "Estantería de pladur de suelo a techo en una vivienda del Sarchal, Ceuta",
+    gallery: [
+      { src: "/images/estanteria-pladur.webp", w: 900, h: 1600, alt: "Estantería de pladur de suelo a techo en una vivienda del Sarchal, Ceuta" },
+    ],
     blurb:
       "Estantería de pladur de suelo a techo, doble calle y baldas a distinta cota. Encaje con molduras existentes de la vivienda.",
   },
@@ -86,11 +120,14 @@ const projects: Project[] = [
     loc: "El Tarajal",
     days: 14,
     m2: 180,
-    img: "/images/techo-celosia.jpg",
+    img: "/images/techo-celosia.webp",
+    w: 1086,
+    h: 1448,
+    alt: "Techo de celosía negra con luminarias en un local de El Tarajal, Ceuta",
     gallery: [
-      "/images/techo-celosia.jpg",
-      "/images/techo-celosia-obra.jpg",
-      "/images/cuadrilla-entrega.jpg",
+      { src: "/images/techo-celosia.webp", w: 1086, h: 1448, alt: "Techo de celosía negra con luminarias en un local de El Tarajal, Ceuta" },
+      { src: "/images/techo-celosia-obra.webp", w: 1600, h: 720, alt: "Montaje de techo de celosía coordinado con climatización en Ceuta" },
+      { src: "/images/cuadrilla-entrega.webp", w: 1600, h: 721, alt: "Cuadrilla de Aislamientos Chairi al entregar un local con techo de celosía en Ceuta" },
     ],
     blurb:
       "Techo de celosía negra con luminarias y cassette de climatización. Coordinado con conductos y pasos de instalaciones vistos por registro.",
@@ -102,8 +139,13 @@ const projects: Project[] = [
     loc: "Polígono",
     days: 9,
     m2: 95,
-    img: "/images/tabique-pladur-nave.jpg",
-    gallery: ["/images/tabique-pladur-nave.jpg"],
+    img: "/images/tabique-pladur-nave.webp",
+    w: 1154,
+    h: 1363,
+    alt: "Tabique de pladur con huecos de carpintería en una nave del polígono de Ceuta",
+    gallery: [
+      { src: "/images/tabique-pladur-nave.webp", w: 1154, h: 1363, alt: "Tabique de pladur con huecos de carpintería en una nave del polígono de Ceuta" },
+    ],
     blurb:
       "Tabique de pladur sobre perfilería metálica, con huecos de carpintería. Placas atornilladas en nave, estructura vista en los vanos y suelo de hormigón.",
   },
@@ -114,8 +156,13 @@ const projects: Project[] = [
     loc: "Príncipe Alfonso",
     days: 7,
     m2: 48,
-    img: "/images/trasdosado-aislamiento.jpg",
-    gallery: ["/images/trasdosado-aislamiento.jpg"],
+    img: "/images/trasdosado-aislamiento.webp",
+    w: 1200,
+    h: 1600,
+    alt: "Trasdosado con lana mineral y placa hidrófuga en una obra de Príncipe Alfonso, Ceuta",
+    gallery: [
+      { src: "/images/trasdosado-aislamiento.webp", w: 1200, h: 1600, alt: "Trasdosado con lana mineral y placa hidrófuga en una obra de Príncipe Alfonso, Ceuta" },
+    ],
     blurb:
       "Trasdosado de perfilería con lana mineral y placa hidrófuga verde. Conducto Isover Climaver a techo y pasos de instalaciones vistos: aislamiento térmico y acústico de obra.",
   },
@@ -184,7 +231,14 @@ export default function ProjectGrid() {
           {list.map((p, i) => (
             <div key={p.id} className="card" onClick={() => openModal(p)}>
               <div className="card-media">
-                <img className="card-img" src={p.img} alt={p.t} loading="lazy" />
+                <SiteImage
+                  className="card-img"
+                  src={p.img}
+                  alt={p.alt}
+                  width={p.w}
+                  height={p.h}
+                  sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw"
+                />
               </div>
               <div className="card-info">
                 <div className="card-title">{p.t}</div>
@@ -208,20 +262,23 @@ export default function ProjectGrid() {
         {modal && (
           <div className="modal-card">
             <div className="modal-img">
-              <img
-                src={modal.gallery[shot]}
-                alt={modal.t}
+              <SiteImage
+                src={modal.gallery[shot].src}
+                alt={modal.gallery[shot].alt}
+                width={modal.gallery[shot].w}
+                height={modal.gallery[shot].h}
+                sizes="(max-width: 1100px) 100vw, 55vw"
               />
               {modal.gallery.length > 1 && (
                 <div className="modal-thumbs">
-                  {modal.gallery.map((src, i) => (
+                  {modal.gallery.map((shotItem, i) => (
                     <button
-                      key={src}
+                      key={shotItem.src}
                       className={`modal-thumb${shot === i ? " on" : ""}`}
                       onClick={() => setShot(i)}
                       aria-label={`Foto ${i + 1}`}
                     >
-                      <img src={src} alt="" />
+                      <SiteImage fill src={shotItem.src} alt={shotItem.alt} sizes="68px" />
                     </button>
                   ))}
                 </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { SITE } from "@/lib/site";
 
 function AnimatedNumber({ target }: { target: number }) {
   const [value, setValue] = useState(0);
@@ -53,11 +54,11 @@ export default function StatsCounter() {
           <div className="lab">m² de pladur instalados</div>
         </div>
         <div>
-          <AnimatedNumber target={820} />
+          <AnimatedNumber target={SITE.works} />
           <div className="lab">Obras entregadas</div>
         </div>
         <div>
-          <AnimatedNumber target={17} />
+          <AnimatedNumber target={SITE.years} />
           <div className="lab">Años cumpliendo plazos</div>
         </div>
         <div>

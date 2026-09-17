@@ -1,0 +1,10 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.aislamientoschairi.com" }],
+      "destination": "https://aislamientoschairi.com/:path*",
+      "permanent": true
+    }
+  ]
+}

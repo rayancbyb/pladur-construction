@@ -1,16 +1,12 @@
 "use client";
 
 import { useState } from "react";
-
-const services = [
-  { n: "01", t: "Pladur", desc: "Tabiques, trasdosados, particiones y cajones. Pladur estándar, ignífugo, hidrófugo o acústico — según la obra.", tag: "Knauf · Pladur · 13/15 mm", img: "/images/tabique-pladur-nave.jpg" },
-  { n: "02", t: "Aislamientos", desc: "Lana de roca, lana de vidrio, EPS y proyectado. Térmico, acústico y para fachadas ventiladas.", tag: "Térmico · Acústico · Cubiertas", img: "/images/trasdosado-aislamiento.jpg" },
-  { n: "03", t: "Techos", desc: "Techos continuos, registrables y desniveles iluminados. Empotrados de tira LED y luminarias incluidas.", tag: "Continuos · Registrables · LED", img: "/images/techo-celosia.jpg" },
-  { n: "04", t: "Reformas", desc: "Reforma integral coordinada — albañilería, pladur, electricidad, fontanería y pintura con una sola interlocución.", tag: "Llave en mano", img: "/images/techo-led-local.jpg" },
-];
+import Link from "next/link";
+import { SERVICES } from "@/lib/services";
+import SiteImage from "@/components/SiteImage";
 
 export default function Services() {
-  const [active, setActive] = useState("01");
+  const [active, setActive] = useState(SERVICES[0].slug);
 
   return (
     <section className="section" id="servicios">
@@ -25,27 +21,33 @@ export default function Services() {
         </p>
       </div>
       <div className="services">
-        {services.map((s) => (
-          <div
-            key={s.n}
-            className={`svc${active === s.n ? " active" : ""}`}
-            onClick={() => setActive(s.n)}
+        {SERVICES.map((s, i) => (
+          <Link
+            key={s.slug}
+            href={s.path}
+            className={`svc${active === s.slug ? " active" : ""}`}
+            onMouseEnter={() => setActive(s.slug)}
           >
             <div className="svc-photo">
-              <img src={s.img} alt="" />
+              <SiteImage
+                src={s.img}
+                alt={s.alt}
+                fill
+                sizes="(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 25vw"
+              />
             </div>
             <div className="svc-body">
               <div className="svc-top">
-                <span className="svc-num">{s.n}/04</span>
+                <span className="svc-num">{String(i + 1).padStart(2, "0")}/04</span>
                 <svg className="svc-arrow" viewBox="0 0 24 24" fill="none">
                   <path d="M7 17 17 7M9 7h8v8" stroke="currentColor" strokeWidth="2" />
                 </svg>
               </div>
-              <h3>{s.t}</h3>
-              <p>{s.desc}</p>
+              <h3>{s.short}</h3>
+              <p>{s.cardDesc}</p>
               <div className="svc-tag">{s.tag}</div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </section>

@@ -1,21 +1,27 @@
-import Tape from "@/components/Tape";
-import Navbar from "@/components/Navbar";
+import type { Metadata } from "next";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
 import StatsCounter from "@/components/StatsCounter";
 import ProjectGrid from "@/components/ProjectGrid";
-import WhatsAppButton from "@/components/WhatsAppButton";
+import JsonLd from "@/components/JsonLd";
+import SiteImage from "@/components/SiteImage";
 import { SITE } from "@/lib/site";
+import { businessJsonLd } from "@/lib/schema";
+
+export const metadata: Metadata = {
+  title: "Aislamientos Chairi · Pladur, aislamiento y reformas en Ceuta",
+  description:
+    "Pladur, aislamiento térmico y acústico y reformas en Ceuta. Cuadrilla propia, 20 años, +500 obras y visita en 24 h. Tel. +34 681 36 95 08.",
+  alternates: { canonical: "/" },
+};
 
 export default function HomePage() {
   return (
     <>
-      <Tape />
-      <Navbar />
+      <JsonLd data={businessJsonLd()} />
       <Hero />
       <Services />
 
-      {/* Process */}
       <section className="section process-wrap" id="proceso">
         <div className="section-head">
           <div>
@@ -59,23 +65,32 @@ export default function HomePage() {
 
         <div className="obra-strip">
           <figure className="obra-shot">
-            <img
-              src="/images/tabique-pladur-nave.jpg"
-              alt="Oficial atornillando placas de pladur en un tabique de nave"
+            <SiteImage
+              src="/images/tabique-pladur-nave.webp"
+              alt="Oficial atornillando un tabique de pladur en una nave de Ceuta"
+              width={1154}
+              height={1363}
+              sizes="(max-width: 1100px) 100vw, 40vw"
             />
             <figcaption>01 · Tabique en nave</figcaption>
           </figure>
           <figure className="obra-shot">
-            <img
-              src="/images/techo-celosia-obra.jpg"
-              alt="Instalación de techo de celosía coordinada con climatización"
+            <SiteImage
+              src="/images/techo-celosia-obra.webp"
+              alt="Techo de celosía coordinado con climatización en un local de Ceuta"
+              width={1600}
+              height={720}
+              sizes="(max-width: 1100px) 100vw, 60vw"
             />
             <figcaption>02 · Celosía + instalaciones</figcaption>
           </figure>
           <figure className="obra-shot">
-            <img
-              src="/images/cuadrilla-entrega.jpg"
-              alt="Cuadrilla al entregar un local con techo de celosía"
+            <SiteImage
+              src="/images/cuadrilla-entrega.webp"
+              alt="Cuadrilla de Aislamientos Chairi al entregar un local con techo de celosía en Ceuta"
+              width={1600}
+              height={721}
+              sizes="(max-width: 1100px) 100vw, 60vw"
             />
             <figcaption>03 · Entrega de local</figcaption>
           </figure>
@@ -85,69 +100,10 @@ export default function HomePage() {
       <StatsCounter />
       <ProjectGrid />
 
-      {/* Testimonials */}
-      <section className="section">
-        <div className="section-head">
-          <div>
-            <div className="kicker"><span className="num">04</span> Lo que dicen</div>
-            <h2 className="section-title">Clientes que han<br />vivido la obra.</h2>
-          </div>
-          <p className="section-lead">Vecinos y locales de Ceuta. Recogidas tras la entrega — no antes.</p>
-        </div>
-        <div className="quotes">
-          <div className="quote">
-            <div className="mark">&ldquo;</div>
-            <p>
-              Esperaba &quot;obra de pladur&quot;: polvo, retrasos y excusas. Lo que hubo fue una cuadrilla
-              puntual, limpia y un acabado de revestidor. Volvería a llamarles mañana.
-            </p>
-            <div className="who">
-              <div className="avatar">MR</div>
-              <div>
-                <div className="nm">Marta R.</div>
-                <div className="rl">Reforma piso · Hadú</div>
-              </div>
-              <div className="stars" style={{ marginLeft: "auto" }}>★★★★★</div>
-            </div>
-          </div>
-          <div className="quote">
-            <div className="mark">&ldquo;</div>
-            <p>
-              Aislaron el muro medianero y por fin duermo sin oír al vecino. El presupuesto que
-              firmamos es exactamente el que pagué. Cero extras inventados.
-            </p>
-            <div className="who">
-              <div className="avatar">JL</div>
-              <div>
-                <div className="nm">Javier L.</div>
-                <div className="rl">Aislam. acústico · El Tarajal</div>
-              </div>
-              <div className="stars" style={{ marginLeft: "auto" }}>★★★★★</div>
-            </div>
-          </div>
-          <div className="quote">
-            <div className="mark">&ldquo;</div>
-            <p>
-              Montaron techos continuos en toda la oficina (180 m²) en seis días, fuera de horario. El
-              lunes abrimos como si nada hubiera pasado. Profesionales de verdad.
-            </p>
-            <div className="who">
-              <div className="avatar">CP</div>
-              <div>
-                <div className="nm">Carla P.</div>
-                <div className="rl">Reforma local · Recinto</div>
-              </div>
-              <div className="stars" style={{ marginLeft: "auto" }}>★★★★★</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact */}
       <section className="contact-wrap" id="contacto">
         <div className="contact">
           <div>
-            <div className="kicker"><span className="num">05</span> Hablemos</div>
+            <div className="kicker"><span className="num">04</span> Hablemos</div>
             <h2 className="section-title">Cuéntanos<br />tu obra.</h2>
             <p className="section-lead" style={{ color: "#bbb", marginTop: 18 }}>
               Contestamos por WhatsApp en menos de una hora, en horario laboral. Estamos en Ceuta:
@@ -209,61 +165,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer>
-        <div className="foot">
-          <div>
-            <div className="logo" style={{ marginBottom: 12 }}>
-              <div className="logo-mark">
-                <svg viewBox="0 0 24 24" fill="none">
-                  <path d="M3 21 L12 4 L21 21 Z" stroke="#0B0B0C" strokeWidth="2.2" strokeLinejoin="round" />
-                  <path d="M8 21 L12 13 L16 21" stroke="#0B0B0C" strokeWidth="2.2" strokeLinejoin="round" />
-                </svg>
-              </div>
-              <div className="logo-word" style={{ color: "var(--bone)" }}>
-                AISLAMIENTOS<br />CHAIRI
-              </div>
-            </div>
-            <div className="foot-big" style={{ color: "var(--yellow)" }}>
-              Obra que<br />no se cae.
-            </div>
-            <div className="foot-tag">EST. 2008 · CEUTA · ESPAÑA</div>
-          </div>
-          <div>
-            <h6>Servicios</h6>
-            <ul>
-              <li><a href="#servicios">Pladur</a></li>
-              <li><a href="#servicios">Aislamiento térmico</a></li>
-              <li><a href="#servicios">Aislamiento acústico</a></li>
-              <li><a href="#servicios">Techos continuos</a></li>
-              <li><a href="#servicios">Reformas integrales</a></li>
-            </ul>
-          </div>
-          <div>
-            <h6>Empresa</h6>
-            <ul>
-              <li><a href="#proceso">Cómo trabajamos</a></li>
-              <li><a href="#obras">Obras</a></li>
-              <li><a href="#contacto">Contacto</a></li>
-            </ul>
-          </div>
-          <div>
-            <h6>Contacto</h6>
-            <ul>
-              <li><a href={SITE.phoneHref}>{SITE.phone}</a></li>
-              <li><a href={SITE.emailHref}>{SITE.email}</a></li>
-              <li>Ceuta · Toda la ciudad</li>
-            </ul>
-          </div>
-        </div>
-        <div className="foot-bottom">
-          <span>© 2026 Aislamientos Chairi · Ceuta</span>
-          <span>Presupuesto sin compromiso</span>
-        </div>
-      </footer>
-
-      <WhatsAppButton />
     </>
   );
 }

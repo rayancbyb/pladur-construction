@@ -1,5 +1,8 @@
 "use client";
 
+import { SITE } from "@/lib/site";
+import SiteImage from "@/components/SiteImage";
+
 export default function Hero() {
   const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -10,7 +13,7 @@ export default function Hero() {
       <div className="hero-grid">
         <div>
           <div className="h-eyebrow">
-            <span className="sq" /> Constructora · Estab. 2008 · Ceuta
+            <span className="sq" /> Constructora · {SITE.years} años · Ceuta
           </div>
           <h1 className="h-title">
             Levantamos
@@ -30,18 +33,20 @@ export default function Hero() {
             </button>
           </div>
           <div className="hero-meta">
-            <div className="meta-item"><div className="n">17</div><div className="l">Años en activo</div></div>
-            <div className="meta-item"><div className="n">+820</div><div className="l">Obras entregadas</div></div>
-            <div className="meta-item"><div className="n">4.9★</div><div className="l">Valoración clientes</div></div>
+            <div className="meta-item"><div className="n">{SITE.years}</div><div className="l">Años en activo</div></div>
+            <div className="meta-item"><div className="n">+{SITE.works}</div><div className="l">Obras entregadas</div></div>
             <div className="meta-item"><div className="n">24 h</div><div className="l">Visita en Ceuta</div></div>
           </div>
         </div>
 
         <div className="hero-visual">
           <div className="hero-img-wrap">
-            <img
-              src="/images/hero-cuadrilla.jpg"
-              alt="Oficial de Aislamientos Chairi montando techo de pladur en Ceuta"
+            <SiteImage
+              src="/images/hero-cuadrilla.webp"
+              alt="Oficial de Aislamientos Chairi montando un techo de pladur en una obra de Ceuta"
+              fill
+              priority
+              sizes="(max-width: 1100px) 90vw, 420px"
             />
             <div className="img-stamp">REF · 05 / Cuadrilla en obra</div>
             <div className="img-caption">

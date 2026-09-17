@@ -16,7 +16,7 @@ html, body {
   padding: 0;
   background: var(--bone);
   color: var(--ink);
-  font-family: "Archivo", system-ui, sans-serif;
+  font-family: var(--font-archivo), "Archivo", system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: 100%;
 }
@@ -25,8 +25,8 @@ body { overflow-x: hidden }
 a { color: inherit; text-decoration: none }
 button { font-family: inherit }
 
-.mono { font-family: "JetBrains Mono", ui-monospace, monospace }
-.display { font-family: "Archivo Black", "Archivo", sans-serif; letter-spacing: -0.02em; line-height: .9 }
+.mono { font-family: var(--font-mono), "JetBrains Mono", ui-monospace, monospace }
+.display { font-family: var(--font-archivo-black), "Archivo Black", "Archivo", sans-serif; letter-spacing: -0.02em; line-height: .9 }
 
 ::selection { background: var(--yellow); color: var(--ink) }
 img { max-width: 100%; display: block }
@@ -46,7 +46,7 @@ img { max-width: 100%; display: block }
   gap: 48px;
   padding: 10px 0;
   animation: slide 35s linear infinite;
-  font-family: "JetBrains Mono", monospace;
+  font-family: var(--font-mono), "JetBrains Mono", monospace;
   font-size: 12px;
   letter-spacing: .12em;
 }
@@ -85,7 +85,7 @@ img { max-width: 100%; display: block }
 .logo-mark svg { width: 22px; height: 22px }
 
 .logo-word {
-  font-family: "Archivo Black";
+  font-family: var(--font-archivo-black), "Archivo Black";
   font-size: 17px;
   letter-spacing: .02em;
   line-height: 1;
@@ -93,7 +93,7 @@ img { max-width: 100%; display: block }
 
 .logo-word small {
   display: block;
-  font-family: "JetBrains Mono";
+  font-family: var(--font-mono), "JetBrains Mono";
   font-weight: 400;
   font-size: 9.5px;
   letter-spacing: .22em;
@@ -162,7 +162,7 @@ img { max-width: 100%; display: block }
   display: inline-flex;
   align-items: center;
   gap: 14px;
-  font-family: "JetBrains Mono";
+  font-family: var(--font-mono), "JetBrains Mono";
   font-size: 12px;
   letter-spacing: .18em;
   text-transform: uppercase;
@@ -175,7 +175,7 @@ img { max-width: 100%; display: block }
 .h-eyebrow .sq { width: 8px; height: 8px; background: var(--yellow) }
 
 .h-title {
-  font-family: "Archivo Black";
+  font-family: var(--font-archivo-black), "Archivo Black";
   font-size: clamp(42px, 8.4vw, 156px);
   line-height: .86;
   letter-spacing: -0.035em;
@@ -234,8 +234,8 @@ img { max-width: 100%; display: block }
   border-top: 1.5px solid var(--ink);
 }
 
-.meta-item .n { font-family: "Archivo Black"; font-size: 34px; line-height: 1 }
-.meta-item .l { font-family: "JetBrains Mono"; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; margin-top: 8px; color: #2a2a2e }
+.meta-item .n { font-family: var(--font-archivo-black), "Archivo Black"; font-size: 34px; line-height: 1 }
+.meta-item .l { font-family: var(--font-mono), "JetBrains Mono"; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; margin-top: 8px; color: #2a2a2e }
 
 .hero-visual { position: relative; align-self: stretch; min-height: 0; display: flex; flex-direction: column; justify-content: flex-end }
 
@@ -268,7 +268,7 @@ img { max-width: 100%; display: block }
   background: var(--yellow);
   color: var(--ink);
   padding: 7px 12px;
-  font-family: "JetBrains Mono";
+  font-family: var(--font-mono), "JetBrains Mono";
   font-size: 11px;
   letter-spacing: .18em;
   text-transform: uppercase;
@@ -281,7 +281,7 @@ img { max-width: 100%; display: block }
   left: 14px;
   right: 14px;
   color: var(--bone);
-  font-family: "JetBrains Mono";
+  font-family: var(--font-mono), "JetBrains Mono";
   font-size: 11px;
   letter-spacing: .12em;
   display: flex;
@@ -294,7 +294,7 @@ img { max-width: 100%; display: block }
   position: absolute;
   right: 36px;
   bottom: 18px;
-  font-family: "JetBrains Mono";
+  font-family: var(--font-mono), "JetBrains Mono";
   font-size: 11px;
   letter-spacing: .2em;
   text-transform: uppercase;
@@ -337,7 +337,7 @@ img { max-width: 100%; display: block }
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  font-family: "JetBrains Mono";
+  font-family: var(--font-mono), "JetBrains Mono";
   font-size: 12px;
   letter-spacing: .2em;
   text-transform: uppercase;
@@ -355,7 +355,7 @@ img { max-width: 100%; display: block }
 }
 
 .section-title {
-  font-family: "Archivo Black";
+  font-family: var(--font-archivo-black), "Archivo Black";
   font-size: clamp(40px, 5.4vw, 84px);
   line-height: .92;
   letter-spacing: -0.03em;
@@ -397,6 +397,7 @@ img { max-width: 100%; display: block }
   aspect-ratio: 3 / 4;
   background: #111;
   overflow: hidden;
+  position: relative;
 }
 
 .svc-photo img {
@@ -409,12 +410,12 @@ img { max-width: 100%; display: block }
 .svc-body { padding: 22px 22px 24px; display: flex; flex-direction: column; flex: 1 }
 
 .svc-top { display: flex; justify-content: space-between; align-items: flex-start }
-.svc-num { font-family: "JetBrains Mono"; font-size: 12px; letter-spacing: .18em }
+.svc-num { font-family: var(--font-mono), "JetBrains Mono"; font-size: 12px; letter-spacing: .18em }
 .svc-arrow { width: 22px; height: 22px; transition: transform .25s }
 .svc:hover .svc-arrow { transform: rotate(-45deg) }
 
 .svc h3 {
-  font-family: "Archivo Black";
+  font-family: var(--font-archivo-black), "Archivo Black";
   font-size: 30px;
   line-height: .95;
   letter-spacing: -0.02em;
@@ -426,7 +427,7 @@ img { max-width: 100%; display: block }
 .svc-tag {
   margin-top: auto;
   padding-top: 14px;
-  font-family: "JetBrains Mono";
+  font-family: var(--font-mono), "JetBrains Mono";
   font-size: 10.5px;
   letter-spacing: .18em;
   text-transform: uppercase;
@@ -458,7 +459,7 @@ img { max-width: 100%; display: block }
 .step:last-child { border-right: none }
 
 .step-n {
-  font-family: "Archivo Black";
+  font-family: var(--font-archivo-black), "Archivo Black";
   font-size: 80px;
   line-height: 1;
   color: transparent;
@@ -466,7 +467,7 @@ img { max-width: 100%; display: block }
   margin-bottom: 18px;
 }
 
-.step h4 { font-family: "Archivo Black"; font-size: 22px; letter-spacing: -0.01em; margin: 0 0 10px }
+.step h4 { font-family: var(--font-archivo-black), "Archivo Black"; font-size: 22px; letter-spacing: -0.01em; margin: 0 0 10px }
 .step p { font-size: 13.5px; line-height: 1.55; color: #bdbdc1; margin: 0 }
 .step-dot { position: absolute; top: 0; left: 0; width: 10px; height: 10px; background: var(--yellow); transform: translate(-5px, -5px) }
 
@@ -520,7 +521,7 @@ img { max-width: 100%; display: block }
   padding: 10px 14px;
   background: #0B0B0C;
   color: var(--bone);
-  font-family: "JetBrains Mono";
+  font-family: var(--font-mono), "JetBrains Mono";
   font-size: 11px;
   letter-spacing: .14em;
   text-transform: uppercase;
@@ -531,7 +532,7 @@ img { max-width: 100%; display: block }
 .filters { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 20px }
 
 .filter {
-  font-family: "JetBrains Mono";
+  font-family: var(--font-mono), "JetBrains Mono";
   font-size: 11.5px;
   letter-spacing: .14em;
   text-transform: uppercase;
@@ -590,7 +591,7 @@ img { max-width: 100%; display: block }
 .card-meta {
   grid-column: 1 / -1;
   color: var(--bone);
-  font-family: "JetBrains Mono";
+  font-family: var(--font-mono), "JetBrains Mono";
   font-size: 11px;
   letter-spacing: .14em;
   text-transform: uppercase;
@@ -600,14 +601,14 @@ img { max-width: 100%; display: block }
 }
 
 .card-title {
-  font-family: "Archivo Black";
+  font-family: var(--font-archivo-black), "Archivo Black";
   font-size: 22px;
   line-height: .95;
   color: var(--bone);
 }
 
 .card-num {
-  font-family: "JetBrains Mono";
+  font-family: var(--font-mono), "JetBrains Mono";
   font-size: 11px;
   letter-spacing: .14em;
   color: var(--bone);
@@ -635,7 +636,7 @@ img { max-width: 100%; display: block }
 }
 
 .quote .mark {
-  font-family: "Archivo Black";
+  font-family: var(--font-archivo-black), "Archivo Black";
   font-size: 80px;
   line-height: .5;
   color: var(--yellow);
@@ -660,12 +661,12 @@ img { max-width: 100%; display: block }
   border: 1.5px solid var(--ink);
   display: grid;
   place-items: center;
-  font-family: "Archivo Black";
+  font-family: var(--font-archivo-black), "Archivo Black";
   font-size: 14px;
 }
 
 .who .nm { font-weight: 700; font-size: 14px }
-.who .rl { font-family: "JetBrains Mono"; font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: #666 }
+.who .rl { font-family: var(--font-mono), "JetBrains Mono"; font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: #666 }
 .stars { display: flex; gap: 2px; color: var(--ink) }
 
 /* ───────── stats banner ───────── */
@@ -690,14 +691,14 @@ img { max-width: 100%; display: block }
 .stat-row > div:last-child { border-right: none }
 
 .stat-row .big {
-  font-family: "Archivo Black";
+  font-family: var(--font-archivo-black), "Archivo Black";
   font-size: clamp(48px, 5.4vw, 88px);
   line-height: .85;
   letter-spacing: -0.03em;
 }
 
 .stat-row .big sup { font-size: .4em; vertical-align: top; margin-left: 4px }
-.stat-row .lab { font-family: "JetBrains Mono"; font-size: 11.5px; letter-spacing: .18em; text-transform: uppercase; margin-top: 14px }
+.stat-row .lab { font-family: var(--font-mono), "JetBrains Mono"; font-size: 11.5px; letter-spacing: .18em; text-transform: uppercase; margin-top: 14px }
 
 /* ───────── contact ───────── */
 .contact-wrap { background: var(--ink); color: var(--bone); padding: 120px 36px 140px }
@@ -731,7 +732,7 @@ img { max-width: 100%; display: block }
 }
 
 .info-row .ic svg { width: 22px; height: 22px }
-.info-row h5 { font-family: "JetBrains Mono"; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--yellow); margin: 0 0 6px }
+.info-row h5 { font-family: var(--font-mono), "JetBrains Mono"; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--yellow); margin: 0 0 6px }
 .info-row p { margin: 0; font-size: 16.5px; font-weight: 500 }
 .info-row p a:hover { color: var(--yellow) }
 .info-row small { display: block; color: #9a9a9f; font-size: 13px; margin-top: 4px }
@@ -763,11 +764,11 @@ footer {
 }
 
 .foot { max-width: 1480px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px }
-.foot h6 { font-family: "JetBrains Mono"; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--yellow); margin: 0 0 16px }
+.foot h6 { font-family: var(--font-mono), "JetBrains Mono"; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--yellow); margin: 0 0 16px }
 .foot ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; font-size: 14px }
 .foot ul a:hover { color: var(--yellow) }
-.foot-big { font-family: "Archivo Black"; font-size: 64px; line-height: .9; letter-spacing: -0.03em; margin-top: 10px }
-.foot-tag { font-family: "JetBrains Mono"; font-size: 12px; letter-spacing: .16em; margin-top: 14px; color: #9a9a9f }
+.foot-big { font-family: var(--font-archivo-black), "Archivo Black"; font-size: 64px; line-height: .9; letter-spacing: -0.03em; margin-top: 10px }
+.foot-tag { font-family: var(--font-mono), "JetBrains Mono"; font-size: 12px; letter-spacing: .16em; margin-top: 14px; color: #9a9a9f }
 
 .foot-bottom {
   max-width: 1480px;
@@ -776,7 +777,7 @@ footer {
   border-top: 1.5px solid #2a2a30;
   display: flex;
   justify-content: space-between;
-  font-family: "JetBrains Mono";
+  font-family: var(--font-mono), "JetBrains Mono";
   font-size: 11px;
   letter-spacing: .14em;
   color: #9a9a9f;
@@ -899,6 +900,7 @@ footer {
   cursor: pointer;
   overflow: hidden;
   opacity: .7;
+  position: relative;
 }
 
 .modal-thumb img { width: 100%; height: 100%; object-fit: cover }
@@ -906,7 +908,7 @@ footer {
 .modal-body { padding: 34px; display: flex; flex-direction: column; gap: 18px }
 
 .modal-body h3 {
-  font-family: "Archivo Black";
+  font-family: var(--font-archivo-black), "Archivo Black";
   font-size: 38px;
   letter-spacing: -0.02em;
   margin: 0;
@@ -917,7 +919,7 @@ footer {
   display: flex;
   gap: 30px;
   flex-wrap: wrap;
-  font-family: "JetBrains Mono";
+  font-family: var(--font-mono), "JetBrains Mono";
   font-size: 11px;
   letter-spacing: .16em;
   text-transform: uppercase;
@@ -936,7 +938,7 @@ footer {
   display: grid;
   place-items: center;
   cursor: pointer;
-  font-family: "Archivo Black";
+  font-family: var(--font-archivo-black), "Archivo Black";
   font-size: 16px;
 }
 
@@ -988,7 +990,7 @@ footer {
   .nav-drawer.show { transform: none }
   .nav-burger, .logo { position: relative; z-index: 2; }
   .nav-drawer a {
-    font-family: "Archivo Black";
+    font-family: var(--font-archivo-black), "Archivo Black";
     font-size: 32px;
     letter-spacing: -0.03em;
     padding: 10px 0;
@@ -1056,4 +1058,88 @@ footer {
   .filters { gap: 6px }
   .filter { padding: 8px 10px; font-size: 10.5px }
   body { padding-bottom: 72px }
+}
+
+/* ───────── service pages ───────── */
+.service-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 48px 36px 100px;
+}
+
+.service-hero { margin-bottom: 40px }
+
+.service-lead {
+  max-width: 640px;
+  font-size: 18px;
+  line-height: 1.5;
+  margin: 18px 0 0;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
+  gap: 48px;
+  align-items: start;
+}
+
+.service-copy p {
+  font-size: 16px;
+  line-height: 1.65;
+  margin: 0 0 16px;
+}
+
+.service-bullets {
+  margin: 8px 0 28px;
+  padding: 0 0 0 18px;
+}
+
+.service-bullets li {
+  margin: 8px 0;
+  font-size: 15.5px;
+  line-height: 1.45;
+}
+
+.service-photo {
+  margin: 0;
+  border: 1.5px solid var(--ink);
+  background: #111;
+  line-height: 0;
+}
+
+.service-photo img { width: 100%; height: auto; display: block }
+
+.service-photo figcaption {
+  padding: 10px 14px;
+  font-family: var(--font-mono), "JetBrains Mono", ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  background: var(--ink);
+  color: var(--bone);
+}
+
+.service-more {
+  margin-top: 56px;
+  padding-top: 28px;
+  border-top: 1.5px solid var(--ink);
+}
+
+.service-more ul {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 22px;
+}
+
+.service-more a {
+  font-weight: 700;
+  border-bottom: 1.5px solid var(--yellow);
+}
+
+@media (max-width: 860px) {
+  .service-page { padding: 28px 18px 96px }
+  .service-grid { grid-template-columns: 1fr; gap: 28px }
 }
