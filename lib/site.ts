@@ -1,7 +1,7 @@
 export const SITE = {
   name: "Aislamientos Chairi",
   city: "Ceuta",
-  url: "https://aislamientoschairi.com",
+  url: "https://www.aislamientoschairi.com",
   phone: "+34 681 36 95 08",
   phoneE164: "+34681369508",
   phoneHref: "tel:+34681369508",
