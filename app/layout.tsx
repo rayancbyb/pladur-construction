@@ -52,18 +52,12 @@ export const metadata: Metadata = {
     images: ["/og.jpg"],
   },
   robots: { index: true, follow: true },
-  ...(process.env.GOOGLE_SITE_VERIFICATION || process.env.BING_SITE_VERIFICATION
-    ? {
-        verification: {
-          ...(process.env.GOOGLE_SITE_VERIFICATION
-            ? { google: process.env.GOOGLE_SITE_VERIFICATION }
-            : {}),
-          ...(process.env.BING_SITE_VERIFICATION
-            ? { other: { "msvalidate.01": process.env.BING_SITE_VERIFICATION } }
-            : {}),
-        },
-      }
-    : {}),
+  verification: {
+    google: "6dUNxpoqvwtObWxbA47xko-ZfmyHb7CK-tNmkczTaxA",
+    ...(process.env.BING_SITE_VERIFICATION
+      ? { other: { "msvalidate.01": process.env.BING_SITE_VERIFICATION } }
+      : {}),
+  },
 };
 
 export const viewport: Viewport = {
