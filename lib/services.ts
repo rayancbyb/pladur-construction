@@ -56,22 +56,24 @@ export const SERVICES: ServiceDoc[] = [
     name: "Aislamiento térmico y acústico en Ceuta",
     short: "Aislamientos",
     cardDesc:
-      "Lana de roca, lana de vidrio, EPS y proyectado. Térmico, acústico y para fachadas y cubiertas.",
-    tag: "Térmico · Acústico · Cubiertas",
-    title: "Aislamiento térmico y acústico en Ceuta | Lana mineral y trasdosados",
+      "También rociamos lana de roca. Trasdosados con lana mineral, EPS y cubiertas: térmico y acústico.",
+    tag: "Lana de roca · Térmico · Acústico",
+    title: "Aislamiento térmico y acústico en Ceuta | Lana de roca proyectada",
     metaDescription:
-      "Aislamiento térmico y acústico en Ceuta con lana mineral, trasdosados y placa hidrófuga. Menos ruido de vecino, menos calor. Visita en 24 h.",
+      "Aislamiento térmico y acústico en Ceuta. Proyectamos lana de roca y montamos trasdosados con lana mineral. Menos ruido, menos calor. Visita en 24 h.",
     h1: "Aislamiento térmico y acústico en Ceuta",
     lead:
-      "Lana mineral en trasdosados, tabiques y cubiertas. Aislamos para no oír al vecino, para no asarnos en agosto y para que el aire acondicionado no se escape por la medianera.",
+      "Lana mineral en trasdosados, tabiques y cubiertas. También rociamos lana de roca sobre forjados, estructuras y techos de garaje o nave — para no oír al vecino, no asarnos en agosto y que el aire no se escape por la medianera.",
     paragraphs: [
       "Ceuta no es un clima suave todo el año. En verano el calor entra por fachadas sin cámara y por cubiertas; en invierno, y con el levante, las medianeras finas transmiten cada conversación del piso de al lado. El aislamiento de verdad no es una manta pegada a la pared: es un sistema — perfilería, lana, placa — con espesor, densidad y sellado de encuentros.",
+      "También proyectamos lana de roca. Se rocía sobre forjados, estructuras metálicas, bajantes y techos de garaje o nave, y queda adherida sin juntas. El espesor lo marcamos en la visita, según el soporte y lo que haya que cubrir. No es la misma partida que la lana en manta: el presupuesto indica superficie, espesor y si después va placa o se deja vista.",
       "En obra montamos trasdosados autoportantes con lana de roca o lana de vidrio entre montantes, y placa de pladur por fuera. En baños y cocinas usamos placa hidrófuga verde. En techos, el mismo criterio: cámara, lana y placa continua o registrable, coordinado con el climatizador. Si hay conductos Isover Climaver u otros pasos, los dejamos vistos por registro; no los tapamos a ciegas.",
       "El aislamiento acústico pide masa, desolidarización y no dejar puentes. Un tabique de una sola placa sin lana no corta el ruido de un televisor. Por eso medimos el hueco, decimos qué espesor cabe y qué se puede esperar: no prometemos estudio de grabación en un piso de Hadú con 8 cm de cámara. Sí podemos bajar de forma clara el ruido de conversación y de impacto ligero cuando el sistema está bien cerrado en suelos, techos y cajas de persiana.",
       "También aislamos cubiertas y huecos puntuales — un dormitorio medianero, un local junto a un bar, una oficina con cassette. El presupuesto indica marca y densidad de la lana, espesor y tipo de placa. Firmamos esa partida y no la cambiamos a mitad. En Ceuta estamos cerca: si hay duda en obra, el jefe de cuadrilla lo resuelve in situ, no por un WhatsApp tres días después.",
       "Si oyes al vecino, si el calor no deja dormir o si un local necesita cumplir un aislamiento mínimo, llámanos al +34 681 36 95 08 o escribe a aislamientoschairi@gmail.com. Visitamos en 24 h en horario laboral.",
     ],
     bullets: [
+      "Proyección de lana de roca sobre forjados, estructuras y techos",
       "Trasdosados con lana mineral y placa de pladur",
       "Aislamiento acústico de medianeras y techos",
       "Placa hidrófuga en zonas húmedas",

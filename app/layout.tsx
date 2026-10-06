@@ -35,10 +35,10 @@ export const metadata: Metadata = {
     template: "%s",
   },
   description:
-    "Pladur, aislamiento térmico y acústico y reformas en Ceuta. Cuadrilla propia, presupuesto cerrado y 2 años de garantía. 20 años y +500 obras.",
+    "Pladur, aislamiento térmico y acústico, proyección de lana de roca y reformas en Ceuta. Cuadrilla propia, presupuesto cerrado y 2 años de garantía. 20 años y +500 obras.",
   openGraph: {
     title: "Aislamientos Chairi · Ceuta",
-    description: "Pladur, aislamiento y reformas en Ceuta. Obra limpia, plazo real y acabado de verdad.",
+    description: "Pladur, aislamiento, lana de roca proyectada y reformas en Ceuta. Obra limpia, plazo real y acabado de verdad.",
     locale: "es_ES",
     type: "website",
     url: SITE.url,

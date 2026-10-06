@@ -16,8 +16,8 @@ export default function Services() {
           <h2 className="section-title">Pladur de obra,<br />no de catálogo.</h2>
         </div>
         <p className="section-lead">
-          Cuatro especialidades. Una sola cuadrilla. Lo planificamos, lo medimos, lo montamos y lo
-          dejamos terminado — sin subcontratas a ciegas.
+          Cuatro especialidades, incluida la proyección de lana de roca. Una sola cuadrilla. Lo
+          planificamos, lo medimos, lo montamos y lo dejamos terminado — sin subcontratas a ciegas.
         </p>
       </div>
       <div className="services">

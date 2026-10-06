@@ -24,8 +24,8 @@ export default function Hero() {
           </h1>
           <p className="h-sub">
             Especialistas en <b>pladur</b>, <b>aislamiento térmico y acústico</b> y reformas
-            en Ceuta. Trabajamos limpio, rápido y con acabados de obra real — sin sorpresas, sin
-            chapuzas.
+            en Ceuta. También <b>rociamos lana de roca</b>. Trabajamos limpio, rápido y con
+            acabados de obra real — sin sorpresas, sin chapuzas.
           </p>
           <div className="h-actions">
             <button className="btn btn-y" onClick={() => scrollTo("obras")}>

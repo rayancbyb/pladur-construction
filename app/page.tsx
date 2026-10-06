@@ -11,7 +11,7 @@ import { businessJsonLd } from "@/lib/schema";
 export const metadata: Metadata = {
   title: "Aislamientos Chairi · Pladur, aislamiento y reformas en Ceuta",
   description:
-    "Pladur, aislamiento térmico y acústico y reformas en Ceuta. Cuadrilla propia, 20 años, +500 obras y visita en 24 h. Tel. +34 681 36 95 08.",
+    "Pladur, aislamiento térmico y acústico, proyección de lana de roca y reformas en Ceuta. Cuadrilla propia, 20 años, +500 obras y visita en 24 h. Tel. +34 681 36 95 08.",
   alternates: { canonical: "/" },
 };
 
