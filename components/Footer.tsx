@@ -17,11 +17,11 @@ export default function Footer() {
           <div className="foot-tag">{SITE.years} AÑOS · CEUTA · ESPAÑA</div>
         </div>
         <div>
-          <h6>Servicios</h6>
+          <h6>Servicios en Ceuta</h6>
           <ul>
             {SERVICES.map((s) => (
               <li key={s.slug}>
-                <Link href={s.path}>{s.short}</Link>
+                <Link href={s.path}>{s.name}</Link>
               </li>
             ))}
           </ul>

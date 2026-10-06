@@ -31,27 +31,66 @@ const jetbrains = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: "Aislamientos Chairi · Pladur, aislamiento y reformas en Ceuta",
+    default: "Aislamientos Chairi · Pladur, lana de roca y reformas en Ceuta",
     template: "%s",
   },
   description:
-    "Pladur, aislamiento térmico y acústico, proyección de lana de roca y reformas en Ceuta. Cuadrilla propia, presupuesto cerrado y 2 años de garantía. 20 años y +500 obras.",
+    "Pladur en Ceuta, aislamiento térmico y acústico, lana de roca proyectada, techos y reformas. Cuadrilla propia, presupuesto cerrado y 2 años de garantía. Tel. +34 681 36 95 08.",
+  keywords: [
+    "pladur ceuta",
+    "pladur en ceuta",
+    "aislamiento ceuta",
+    "aislamientos ceuta",
+    "lana de roca ceuta",
+    "techos pladur ceuta",
+    "techos continuos ceuta",
+    "aislamiento térmico ceuta",
+    "aislamiento acústico ceuta",
+    "reformas ceuta",
+    "trasdosados ceuta",
+    "Aislamientos Chairi",
+  ],
+  authors: [{ name: SITE.name, url: SITE.url }],
+  creator: SITE.name,
+  publisher: SITE.name,
+  category: "construction",
   openGraph: {
-    title: "Aislamientos Chairi · Ceuta",
-    description: "Pladur, aislamiento, lana de roca proyectada y reformas en Ceuta. Obra limpia, plazo real y acabado de verdad.",
+    title: "Aislamientos Chairi · Pladur y lana de roca en Ceuta",
+    description:
+      "Pladur, aislamiento, lana de roca proyectada, techos y reformas en Ceuta. Obra limpia, plazo real y acabado de verdad.",
     locale: "es_ES",
     type: "website",
     url: SITE.url,
     siteName: SITE.name,
-    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "Cuadrilla de Aislamientos Chairi montando pladur en Ceuta" }],
+    images: [
+      {
+        url: "/og.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Cuadrilla de Aislamientos Chairi montando pladur en Ceuta",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Aislamientos Chairi · Ceuta",
-    description: "Pladur, aislamiento y reformas en Ceuta.",
+    title: "Aislamientos Chairi · Pladur y aislamiento en Ceuta",
+    description: "Pladur, lana de roca, techos y reformas en Ceuta.",
     images: ["/og.jpg"],
   },
-  robots: { index: true, follow: true },
+  alternates: {
+    languages: { "es-ES": SITE.url },
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   icons: {
     icon: [
       { url: "/favicon.png", type: "image/png", sizes: "32x32" },
@@ -64,6 +103,12 @@ export const metadata: Metadata = {
     ...(process.env.BING_SITE_VERIFICATION
       ? { other: { "msvalidate.01": process.env.BING_SITE_VERIFICATION } }
       : {}),
+  },
+  other: {
+    "geo.region": "ES-CE",
+    "geo.placename": "Ceuta",
+    "geo.position": `${SITE.geo.lat};${SITE.geo.lng}`,
+    ICBM: `${SITE.geo.lat}, ${SITE.geo.lng}`,
   },
 };
 

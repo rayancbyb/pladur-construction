@@ -16,8 +16,9 @@ export default function Services() {
           <h2 className="section-title">Pladur de obra,<br />no de catálogo.</h2>
         </div>
         <p className="section-lead">
-          Cuatro especialidades, incluida la proyección de lana de roca. Una sola cuadrilla. Lo
-          planificamos, lo medimos, lo montamos y lo dejamos terminado — sin subcontratas a ciegas.
+          Pladur, aislamientos, lana de roca proyectada, techos y reformas en Ceuta. Una sola
+          cuadrilla: lo planificamos, lo medimos, lo montamos y lo dejamos terminado — sin
+          subcontratas a ciegas.
         </p>
       </div>
       <div className="services">
@@ -38,7 +39,7 @@ export default function Services() {
             </div>
             <div className="svc-body">
               <div className="svc-top">
-                <span className="svc-num">{String(i + 1).padStart(2, "0")}/04</span>
+                <span className="svc-num">{String(i + 1).padStart(2, "0")}/{String(SERVICES.length).padStart(2, "0")}</span>
                 <svg className="svc-arrow" viewBox="0 0 24 24" fill="none">
                   <path d="M7 17 17 7M9 7h8v8" stroke="currentColor" strokeWidth="2" />
                 </svg>

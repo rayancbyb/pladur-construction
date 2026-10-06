@@ -359,7 +359,7 @@ img { max-width: 100%; display: block }
   max-width: 1480px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   border: 1.5px solid var(--ink);
   background: var(--ink);
   gap: 1.5px;
@@ -405,7 +405,7 @@ img { max-width: 100%; display: block }
 
 .svc h3 {
   font-family: var(--font-archivo-black), "Archivo Black";
-  font-size: 30px;
+  font-size: clamp(22px, 2vw, 28px);
   line-height: .95;
   letter-spacing: -0.02em;
   margin: 16px 0 12px;
@@ -1127,7 +1127,94 @@ footer {
   border-bottom: 1.5px solid var(--yellow);
 }
 
+.service-crumbs {
+  font-size: 13px;
+  font-weight: 600;
+  margin: 0 0 22px;
+  color: var(--muted);
+}
+
+.service-crumbs a {
+  color: var(--ink);
+  border-bottom: 1px solid transparent;
+}
+
+.service-crumbs a:hover { border-bottom-color: var(--yellow) }
+
+.service-h2 {
+  font-family: var(--font-archivo-black), "Archivo Black", "Archivo", sans-serif;
+  font-size: clamp(22px, 3vw, 28px);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin: 28px 0 14px;
+}
+
+.service-faq { margin-top: 48px }
+
+.faq-list { margin: 0; padding: 0 }
+
+.faq-item {
+  border-top: 1.5px solid var(--ink);
+  padding: 16px 0;
+}
+
+.faq-item:last-child { border-bottom: 1.5px solid var(--ink) }
+
+.faq-item dt {
+  font-weight: 800;
+  font-size: 16px;
+  margin: 0 0 8px;
+}
+
+.faq-item dd {
+  margin: 0;
+  font-size: 15.5px;
+  line-height: 1.55;
+  color: #333;
+}
+
+.seo-zone { padding-bottom: 40px }
+
+.seo-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 40px;
+  align-items: start;
+}
+
+.seo-copy p {
+  font-size: 16px;
+  line-height: 1.65;
+  margin: 0 0 16px;
+  max-width: 52ch;
+}
+
+.seo-copy a {
+  font-weight: 700;
+  border-bottom: 1.5px solid var(--yellow);
+}
+
+.seo-links {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+}
+
+.seo-links a {
+  font-size: 14px;
+  font-weight: 700;
+  border-bottom: 1.5px solid var(--yellow);
+}
+
+.home-faq { margin-top: 0 }
+
+.home-faq .service-h2 { margin-top: 0 }
+
 @media (max-width: 860px) {
   .service-page { padding: 28px 18px 96px }
   .service-grid { grid-template-columns: 1fr; gap: 28px }
+  .seo-grid { grid-template-columns: 1fr; gap: 28px }
 }

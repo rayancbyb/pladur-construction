@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
 import StatsCounter from "@/components/StatsCounter";
@@ -6,12 +7,26 @@ import ProjectGrid from "@/components/ProjectGrid";
 import JsonLd from "@/components/JsonLd";
 import SiteImage from "@/components/SiteImage";
 import { SITE } from "@/lib/site";
-import { businessJsonLd } from "@/lib/schema";
+import { SERVICES } from "@/lib/services";
+import {
+  HOME_FAQS,
+  businessJsonLd,
+  faqJsonLd,
+  websiteJsonLd,
+} from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "Aislamientos Chairi · Pladur, aislamiento y reformas en Ceuta",
+  title: "Aislamientos Chairi · Pladur, lana de roca y reformas en Ceuta",
   description:
-    "Pladur, aislamiento térmico y acústico, proyección de lana de roca y reformas en Ceuta. Cuadrilla propia, 20 años, +500 obras y visita en 24 h. Tel. +34 681 36 95 08.",
+    "Pladur en Ceuta, aislamiento térmico y acústico, lana de roca proyectada, techos y reformas. Cuadrilla propia, 20 años, +500 obras y visita en 24 h. Tel. +34 681 36 95 08.",
+  keywords: [
+    "pladur ceuta",
+    "aislamiento ceuta",
+    "lana de roca ceuta",
+    "techos ceuta",
+    "reformas ceuta",
+    "Aislamientos Chairi",
+  ],
   alternates: { canonical: "/" },
 };
 
@@ -19,6 +34,8 @@ export default function HomePage() {
   return (
     <>
       <JsonLd data={businessJsonLd()} />
+      <JsonLd data={websiteJsonLd()} />
+      <JsonLd data={faqJsonLd(HOME_FAQS)} />
       <Hero />
       <Services />
 
@@ -100,10 +117,67 @@ export default function HomePage() {
       <StatsCounter />
       <ProjectGrid />
 
+      <section className="section seo-zone" aria-labelledby="seo-ceuta">
+        <div className="section-head">
+          <div>
+            <div className="kicker"><span className="num">04</span> Ceuta</div>
+            <h2 id="seo-ceuta" className="section-title">
+              Pladur, aislamientos<br />y lana de roca en Ceuta.
+            </h2>
+          </div>
+          <p className="section-lead">
+            Si buscas pladur en Ceuta, aislamiento térmico o acústico, techos de pladur o
+            proyección de lana de roca, somos cuadrilla local: medimos, presupuestamos y
+            ejecutamos en toda la ciudad.
+          </p>
+        </div>
+        <div className="seo-grid">
+          <div className="seo-copy">
+            <p>
+              <Link href="/pladur-ceuta">Pladur en Ceuta</Link> — tabiques, trasdosados,
+              particiones y muebles a medida en viviendas, locales y naves.{" "}
+              <Link href="/aislamiento-termico-acustico-ceuta">Aislamiento en Ceuta</Link>{" "}
+              con lana mineral y sistemas de pladur.{" "}
+              <Link href="/lana-de-roca-ceuta">Lana de roca en Ceuta</Link> proyectada
+              sobre forjados, garajes y estructuras.{" "}
+              <Link href="/techos-continuos-ceuta">Techos continuos en Ceuta</Link> y{" "}
+              <Link href="/reformas-integrales-ceuta">reformas integrales</Link> con una
+              sola interlocución.
+            </p>
+            <p>
+              Trabajamos en Recinto, Hadú, Juan Carlos I, centro, polígono y resto de
+              barrios. Visita en 24 h, presupuesto cerrado y {SITE.years} años de obra
+              real en Ceuta. Teléfono{" "}
+              <a href={SITE.phoneHref}>{SITE.phone}</a>.
+            </p>
+            <ul className="seo-links">
+              {SERVICES.map((s) => (
+                <li key={s.slug}>
+                  <Link href={s.path}>{s.name}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <section className="service-faq home-faq" aria-labelledby="faq-home">
+            <h3 id="faq-home" className="service-h2">
+              Preguntas frecuentes
+            </h3>
+            <dl className="faq-list">
+              {HOME_FAQS.map((f) => (
+                <div key={f.question} className="faq-item">
+                  <dt>{f.question}</dt>
+                  <dd>{f.answer}</dd>
+                </div>
+              ))}
+            </dl>
+          </section>
+        </div>
+      </section>
+
       <section className="contact-wrap" id="contacto">
         <div className="contact">
           <div>
-            <div className="kicker"><span className="num">04</span> Hablemos</div>
+            <div className="kicker"><span className="num">05</span> Hablemos</div>
             <h2 className="section-title">Cuéntanos<br />tu obra.</h2>
             <p className="section-lead" style={{ color: "#bbb", marginTop: 18 }}>
               Contestamos por WhatsApp en menos de una hora, en horario laboral. Estamos en Ceuta:
