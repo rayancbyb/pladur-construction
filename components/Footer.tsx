@@ -1,22 +1,15 @@
 import Link from "next/link";
 import { SITE } from "@/lib/site";
 import { SERVICES } from "@/lib/services";
+import Logo from "@/components/Logo";
 
 export default function Footer() {
   return (
     <footer>
       <div className="foot">
         <div>
-          <div className="logo" style={{ marginBottom: 12 }}>
-            <div className="logo-mark">
-              <svg viewBox="0 0 24 24" fill="none">
-                <path d="M3 21 L12 4 L21 21 Z" stroke="#0B0B0C" strokeWidth="2.2" strokeLinejoin="round" />
-                <path d="M8 21 L12 13 L16 21" stroke="#0B0B0C" strokeWidth="2.2" strokeLinejoin="round" />
-              </svg>
-            </div>
-            <div className="logo-word" style={{ color: "var(--bone)" }}>
-              AISLAMIENTOS<br />CHAIRI
-            </div>
+          <div className="logo" style={{ marginBottom: 16 }}>
+            <Logo />
           </div>
           <div className="foot-big" style={{ color: "var(--yellow)" }}>
             Obra que<br />no se cae.

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { NAV } from "@/lib/site";
+import Logo from "@/components/Logo";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -48,23 +49,13 @@ export default function Navbar() {
       <Link
         href="/"
         className="logo"
+        aria-label="Aislamientos Chairi — inicio"
         onClick={() => {
           setOpen(false);
           if (home) window.scrollTo({ top: 0, behavior: "smooth" });
         }}
       >
-        <div className="logo-mark">
-          <svg viewBox="0 0 24 24" fill="none">
-            <path d="M3 21 L12 4 L21 21 Z" stroke="#0B0B0C" strokeWidth="2.2" strokeLinejoin="round" />
-            <path d="M8 21 L12 13 L16 21" stroke="#0B0B0C" strokeWidth="2.2" strokeLinejoin="round" />
-          </svg>
-        </div>
-        <div className="logo-word">
-          AISLAMIENTOS
-          <br />
-          CHAIRI
-          <small>PLADUR · CEUTA · REFORMAS</small>
-        </div>
+        <Logo priority />
       </Link>
 
       <div className="nav-links">

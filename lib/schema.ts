@@ -10,7 +10,8 @@ export function businessJsonLd() {
     "@id": businessId,
     name: SITE.name,
     url: SITE.url,
-    image: `${SITE.url}/og.jpg`,
+    image: `${SITE.url}/logo.png`,
+    logo: `${SITE.url}/logo.png`,
     telephone: SITE.phoneE164,
     email: SITE.email,
     address: {
