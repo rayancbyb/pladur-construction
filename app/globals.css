@@ -904,17 +904,20 @@ footer {
   line-height: .95;
 }
 
-.modal-meta {
-  display: flex;
-  gap: 30px;
-  flex-wrap: wrap;
-  font-family: var(--font-mono), "JetBrains Mono";
-  font-size: 11px;
-  letter-spacing: .16em;
-  text-transform: uppercase;
+.modal-card-simple {
+  grid-template-columns: 1.6fr .7fr;
+  max-width: 880px;
 }
 
-.modal-meta div b { display: block; color: #7a7a80; font-weight: 500; margin-bottom: 5px }
+.modal-body-simple {
+  justify-content: center;
+  gap: 22px;
+  padding: 28px 26px;
+}
+
+.modal-body-simple h3 {
+  font-size: clamp(26px, 3.2vw, 34px);
+}
 
 .modal-close {
   position: absolute;
